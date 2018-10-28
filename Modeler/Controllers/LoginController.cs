@@ -26,10 +26,11 @@ namespace Modeler.Controllers
                     return View("Index", userModel);
                 }
                 else
-                {
+                { 
                     // itt bele tehetem, ami meg kell
                     Session["userID"] = userDetails.UserID;
-                    return RedirectToAction("Index", "Home");
+                    Session["userType"] = userDetails.UserType;
+                    return RedirectToAction("RedirectUserType", "Chart");
                 }
             }
         }
