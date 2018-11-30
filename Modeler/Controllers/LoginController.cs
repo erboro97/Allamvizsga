@@ -26,9 +26,8 @@ namespace Modeler.Controllers
                     return View("Index", userModel);
                 }
                 else
-                {
+                { 
                     // itt bele tehetem, ami meg kell
-                    DifferentialEquestion dif = new DifferentialEquestion();
                     Session["userID"] = userDetails.UserID;
                     Session["userType"] = userDetails.UserType;
                     return RedirectToAction("RedirectUserType", "Chart");
