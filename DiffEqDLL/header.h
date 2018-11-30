@@ -4,7 +4,7 @@ class myClass
 {
 public:
 	myClass( double var_x, double var_y);
-	double sumX_Y();
+	int sumX_Y();
 private:
 	double x, y;
 

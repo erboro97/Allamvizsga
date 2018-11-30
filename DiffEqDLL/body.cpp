@@ -7,6 +7,6 @@ myClass::myClass(double var_x, double var_y)
 	y = var_y;
 }
 
-double myClass::sumX_Y() {
+int myClass::sumX_Y() {
 	return x + y;
 }
