@@ -15,7 +15,7 @@ namespace Modeler.Models
             int result;
             try
             {
-                result = sumTwo(var_x, var_y);
+                result = sumTwo(1.0, 0.0,0.0, 0.1, 1.05, 1.5);
             }
             catch (EntryPointNotFoundException e)
             {
@@ -24,7 +24,7 @@ namespace Modeler.Models
         }
 
         [DllImport("D:\\Egyetem\\Allamvizsga\\Modeler\\Debug\\CppClassDll.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int sumTwo(double var_x, double var_y);
+        public static extern int sumTwo(double var_x, double var_y, double t, double mu, double omega, double eps);
 
     }
 }
