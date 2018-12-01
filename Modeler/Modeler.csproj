@@ -173,6 +173,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginData.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\OdeModel.cs" />
+    <Compile Include="Models\ReadFromFile.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>LoginData.tt</DependentUpon>
     </Compile>

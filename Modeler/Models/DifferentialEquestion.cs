@@ -8,14 +8,17 @@ namespace Modeler.Models
 {
     public class DifferentialEquestion
     {
+        private List<OdeModel> resultDifEquestion = new List<OdeModel>();
         public DifferentialEquestion()
         {
-            double var_x = 5;
-            double var_y = 30;
             int result;
             try
             {
-                result = sumTwo(1.0, 0.0,0.0, 0.1, 1.05, 1.5);
+                if((result = sumTwo(1.0, 0.0,0.0, 0.1, 1.05, 1.5))==1)
+                {
+                    ReadFromFile readFromFile = new ReadFromFile();
+                    resultDifEquestion = readFromFile.getDataFromFile("D:\\Egyetem\\Allamvizsga\\Modeler\\results.txt");
+                }
             }
             catch (EntryPointNotFoundException e)
             {
