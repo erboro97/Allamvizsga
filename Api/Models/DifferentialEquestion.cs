@@ -14,7 +14,7 @@ namespace Modeler.Models
             int result;
             try
             {
-                if ((result = sumTwo(1.0, 0.0, 0.0, 0.1, 1.05, 1.5)) == 1)
+                if((result = sumTwo(1.0, 0.0,0.0, 0.1, 1.05, 1.5))==1)
                 {
                     ReadFromFile readFromFile = new ReadFromFile();
                     resultDifEquestion = readFromFile.getDataFromFile("D:\\Egyetem\\Allamvizsga\\Modeler\\results.txt");
