@@ -1,6 +1,7 @@
 ﻿using Modeler.Models;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -8,23 +9,19 @@ using System.Web.Http;
 
 namespace Api.Controllers
 {
-    [RoutePrefix("api/Values")]
     public class ValuesController : ApiController
     {
         private DifferentialEquestion dif = new DifferentialEquestion();
-        // GET api/values
+ 
         [HttpGet]
-        public IEnumerable<OdeModel> getValues()
+        public object getValues()
         {
-            return dif.getResults();
+            dynamic obj = new ExpandoObject();
+            obj.x = dif.getResultX0();
+            obj.y = dif.getResultX1();
+            return obj;
         }
 
-        //// GET api/values/5
-        //[HttpGet]
-        //public OdeModel Get(int id)
-        //{
-        //    return dif.getResults()[id];
-        //}
 
         // POST api/values
         public void Post([FromBody]OdeModel value)

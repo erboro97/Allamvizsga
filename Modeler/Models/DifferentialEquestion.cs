@@ -33,5 +33,25 @@ namespace Modeler.Models
         {
             return resultDifEquestion;
         }
+
+        public List<double> getResultX0()
+        {
+            List<double> OdeX0 = new List<double>();
+            foreach (OdeModel x0 in resultDifEquestion)
+            {
+                OdeX0.Add(x0.x0);
+            }
+            return OdeX0;
+        }
+
+        public List<double> getResultX1()
+        {
+            List<double> OdeX1 = new List<double>();
+            foreach (OdeModel x1 in resultDifEquestion)
+            {
+                OdeX1.Add(x1.x1);
+            }
+            return OdeX1;
+        }
     }
 }

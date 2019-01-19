@@ -6,11 +6,19 @@
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/Charts/charts.js"></script>
 </header>
 <body>
-    <div>
+    <div id="container">
         Doctor
+     
     </div>
 </body>
 </html>
+
+<script>
+    $.get("http://localhost:54231/api/Values/getValues", function (data, status) {
+        alert("Status: " + status);
+    });
+</script>
