@@ -98,22 +98,36 @@ $(document).ready(function () {
         var chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'container',
-                type: 'line'
+                type: 'spline',
+                inverted: true
             },
-            colors: ['#1986C4', '#7DBD3B'],
 
-            title: {
-                text: 'Neme',
-                style: {
-                    color: '#C0C0C0'
+            xAxis: {
+                reversed: false,
+                title: {
+                    enavled: true,
+                    text: 'X'
                 },
-                fontSize: "18px"
+                labels: {
+                    format: '{value} -'
+                },
+                showLastLabel: true
             },
 
-        
+            yAxis: {
+                title: {
+                    text: 'Y'
+                },
 
-           
-            credits: false,
+                labels: {
+                    format: '{value} '
+                },
+                lineWidth: 2
+            },
+
+            legend: {
+                enabled: false
+            },
             tooltip: {
                 enabled: false,
                 headerFormat: '<span style="font-size:11px">{point.key}</span><br>',
@@ -123,62 +137,65 @@ $(document).ready(function () {
 
 
             series: [{
-                size: '100%',
-                showInLegends: false,
+
                 name: 'Segment',
                 data: (function () {
+                    var category = ['x'];
                     var mySeries = [];
-                    myData = [];
-                    myData.push(data.x);
-                    mySeries.push(data.x);
+                    myData = [data.x, data.y];
+                    for (var i = 0; i < myData[0].length; i++) {
+                        mySeries.push([myData[1][i], myData[0][i]]);
+                    }
+                    
+
                     return mySeries;
                 }())
             }]
-
-
-        },
+        })
+   })
+ });
       
 
        
-        function (chart) { // on complete
+//        function (chart) { // on complete
 
-            var xpos = '50%';
-            var ypos = '53%';
-            var circleradius = 102;
+//            var xpos = '50%';
+//            var ypos = '53%';
+//            var circleradius = 102;
 
-            // Render the circle
-            chart.renderer.circle(xpos, ypos, circleradius).attr({
-                fill: 'none'
-            }).add();
+//            // Render the circle
+//            chart.renderer.circle(xpos, ypos, circleradius).attr({
+//                fill: 'none'
+//            }).add();
 
-            // Render the text
-            var inner_text = '<p>Teszt</p><br>';
-            myData[0] = parseFloat(myData[0]);
-            var inner_text1 = "<p><b>".concat(myData[0]).concat("%</b></p>");
-            chart.renderer.text(inner_text, 130, 165).css({
-                width: circleradius * 2,
-                color: 'grey',
-                fontSize: '25px',
-                textAlign: 'center'
-            }).attr({
-                // why doesn't zIndex get the text in front of the chart?
+//            // Render the text
+//            var inner_text = '<p>Teszt</p><br>';
+//            myData[0] = parseFloat(myData[0]);
+//            var inner_text1 = "<p><b>".concat(myData[0]).concat("%</b></p>");
+//            chart.renderer.text(inner_text, 130, 165).css({
+//                width: circleradius * 2,
+//                color: 'grey',
+//                fontSize: '25px',
+//                textAlign: 'center'
+//            }).attr({
+//                // why doesn't zIndex get the text in front of the chart?
 
-                zIndex: 999
-            }).add();
+//                zIndex: 999
+//            }).add();
 
-            chart.renderer.text(inner_text1, 120, 197).css({
-                width: circleradius * 2,
-                color: 'black',
-                formatter: "{point.y:.1f}",
-                fontSize: '25px',
-                textAlign: 'center'
-            }).attr({
-                // why doesn't zIndex get the text in front of the chart?
+//            chart.renderer.text(inner_text1, 120, 197).css({
+//                width: circleradius * 2,
+//                color: 'black',
+//                formatter: "{point.y:.1f}",
+//                fontSize: '25px',
+//                textAlign: 'center'
+//            }).attr({
+//                // why doesn't zIndex get the text in front of the chart?
 
-                zIndex: 999
-            }).add();
-        });
+//                zIndex: 999
+//            }).add();
+//        });
 
 
-    });
-});
+//    });
+//});
