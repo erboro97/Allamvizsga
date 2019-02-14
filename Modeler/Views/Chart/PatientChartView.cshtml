@@ -1,8 +1,4 @@
 ﻿
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
@@ -11,8 +7,17 @@
     <title>PatientChartView</title>
 </head>
 <body>
-    <div> 
-        Patient
-    </div>
+    <h2>
+        Welcome! You are a potential patient. If you want to estimate that what kind of heart sickness could you have, you can fill out our survey.
+    </h2>
+    <input type="button" id="surveyBtn" value="Fill out the survey"/>
 </body>
+
 </html>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+ $('#surveyBtn').click(function () {
+        document.location = '@Url.Action("HeartSurvey","Survey")';
+    });
+</script>
+@*<script src="~/Scripts/Survey/Helper.js"></script>*@

@@ -12,11 +12,10 @@ namespace Modeler.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Disease_Symptom_rel
     {
-        public int UserID { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string UserType { get; set; }
+        public int disease_id { get; set; }
+        public int symptom_id { get; set; }
+        public int score { get; set; }
     }
 }
