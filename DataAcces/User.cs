@@ -6,25 +6,17 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-//https://www.youtube.com/watch?v=EyrKUSwi4uI&t=553s
-namespace Modeler.Models
+
+namespace DataAcces
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class User
     {
         public int UserID { get; set; }
-        [DisplayName("User name:")]
-        [Required(ErrorMessage = "This field is required.")]
         public string UserName { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
-        [DisplayName("Password:")]
-        [DataType(DataType.Password)]
         public string Password { get; set; }
         public string UserType { get; set; }
-        public string LoginErrorMessage { get; set; }
     }
 }
