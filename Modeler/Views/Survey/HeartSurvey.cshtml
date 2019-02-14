@@ -1,6 +1,6 @@
 ﻿
 
-
+@model Modeler.Models.DataModels.HeartSurveyModel
 <!DOCTYPE html>
 
 <html>
@@ -9,8 +9,106 @@
     <title>HeartSurvey</title>
 </head>
 <body>
-    <div> 
 
-    </div>
+    @using (Html.BeginForm())
+    {
+        <h3>EKG:</h3>
+        <label>
+            Normal
+            @Html.RadioButtonFor(m => m.ekg, "0")
+        </label>
+        <label>
+            non-specific repolarizatiob disturbance
+            @Html.RadioButtonFor(m => m.ekg, "1")
+        </label>
+        <label>
+            significant ST depression
+            @Html.RadioButtonFor(m => m.ekg, "2")
+        </label>
+
+        <h3>Age: </h3>
+        <label>
+            less than 45
+            @Html.RadioButtonFor(m => m.age, "0")
+        </label>
+        <label>
+            45-64
+            @Html.RadioButtonFor(m => m.age, "1")
+        </label>
+        <label>
+            more than 65
+            @Html.RadioButtonFor(m => m.age, "2")
+        </label>
+
+        <h3>Risk factors: </h3>
+        <label>
+            no known risk factors
+            @Html.RadioButtonFor(m => m.riskFactor, "0")
+        </label>
+        <label>
+            1-2 risk factors
+            @Html.RadioButtonFor(m => m.riskFactor, "1")
+        </label>
+        <label>
+            more than 3 risk factors or history of atherosclerotic disease
+            @Html.RadioButtonFor(m => m.riskFactor, "2")
+        </label>
+
+        <h3>Initial troponin: </h3>
+        <label>
+            normal limit
+            @Html.RadioButtonFor(m => m.initialTroponin, "0")
+        </label>
+        <label>
+            1-2x normal limit
+            @Html.RadioButtonFor(m => m.initialTroponin, "1")
+        </label>
+        <label>
+            more than 2x normal limit
+            @Html.RadioButtonFor(m => m.initialTroponin, "2")
+        </label>
+
+        <h3>Known CAD, cerebrovascular disease, or peripheral vascular disease: </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.cad, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.cad, "1")
+        </label>
+
+        <h3>Pain worse with exercise: </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.painExercice, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.painExercice, "1")
+        </label>
+
+        <h3>Pain reproducible with palpation: </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.painPalpation, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.painPalpation, "1")
+        </label>
+
+        <h3>Pain assumes pain in cardiac: </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.painCardiac, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.painCardiac, "1")
+        </label>
+        <input type="submit" value="Ok">
+    }
+
 </body>
 </html>
