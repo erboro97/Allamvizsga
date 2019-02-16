@@ -35,5 +35,10 @@ namespace WebAPI.Controllers
         public void Delete(int id)
         {
         }
+
+        public int heartSurvey()
+        {
+            return 1;
+        }
     }
 }

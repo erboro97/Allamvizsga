@@ -13,6 +13,7 @@ namespace Modeler.Controllers
         [HttpGet]
         public ActionResult HeartSurvey()
         {
+            ViewBag.ApiBaseUrl = Url.Content("~/");
             return View("HeartSurvey");
         }
 
