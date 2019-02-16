@@ -107,6 +107,473 @@
             yes
             @Html.RadioButtonFor(m => m.painCardiac, "1")
         </label>
+        //OHFRS
+        <h3>Stroke or TIA </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.stroke, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.stroke, "1")
+        </label>
+
+        <h3>Intubation for respiratory distress </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.intubation, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.intubation, "1")
+        </label>
+
+        <h3> Heart Rate on ED arrival >=110</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.heartRate, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.heartRate, "1")
+        </label>
+
+        <h3> SaO2 less than 90% on arrival </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.SaSO2, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.SaSO2, "1")
+        </label>
+
+        <h3> Heart rate >=110 durring 3-minutes walk test </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.heartRateWalkTest, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.heartRateWalkTest, "1")
+        </label>
+
+        <h3> Urea >=12 mmol/L (33 mg/dL)</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.urea, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.urea, "1")
+        </label>
+
+        <h3> Serum CO2 >=35 mmol/L (mEq/L)</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.CO2, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.CO2, "1")
+        </label>
+
+        <h3> Troponin I or T elevated to MI level</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.troponin, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.troponin, "1")
+        </label>
+
+        <h3> NT-proBNP >=5.000 ng/L (pg/mL)</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.ntProbnp, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.ntProbnp, "1")
+        </label>
+
+        <h3> ASA use in past 7 days</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.asa, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.asa, "1")
+        </label>
+
+        <h3> Severe angina (>=2 episodes in 24 hrs)</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.angina, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.angina, "1")
+        </label>
+
+        <h3>Positive cardiac marker </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.cardiacMarker, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.cardiacMarker, "1")
+        </label>
+
+        <h3>Myocardial infarction </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.myocardialInfarction, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.myocardialInfarction, "1")
+        </label>
+
+        <h3> CHF</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.chf, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.chf, "1")
+        </label>
+
+        <h3> Peripheral vascular disease </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.peripheral, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.peripheral, "1")
+        </label>
+
+        <h3> CVA or TIA</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.cva, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.cva, "1")
+        </label>
+
+        <h3> Demetia </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.dementia, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.dementia, "1")
+        </label>
+
+        <h3>COPD </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.copd, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.copd, "1")
+        </label>
+
+        <h3> Connective tissue disease</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.connective, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.connective, "1")
+        </label>
+
+        <h3> peptic ulcer disease</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.pepticUlcer, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.pepticUlcer, "1")
+        </label>
+
+        <h3> Liver disease </h3>
+        <label>
+            none
+            @Html.RadioButtonFor(m => m.liver, "0")
+        </label>
+        <label>
+            mild
+            @Html.RadioButtonFor(m => m.liver, "1")
+        </label>
+        <label>
+            moderate to severe
+            @Html.RadioButtonFor(m => m.liver, "2")
+        </label>
+
+        <h3> Diabetes mellitus </h3>
+        <label>
+            none
+            @Html.RadioButtonFor(m => m.diabetes, "0")
+        </label>
+        <label>
+            mild
+            @Html.RadioButtonFor(m => m.diabetes, "1")
+        </label>
+        <label>
+            moderate to severe
+            @Html.RadioButtonFor(m => m.diabetes, "2")
+        </label>
+
+        <h3> Leukemia </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.leukemia, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.leukemia, "1")
+        </label>
+
+        <h3> Lymphoma </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.lymphoma, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.lymphoma, "1")
+        </label>
+
+        <h3> AIDS </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.AIDS, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.AIDS, "1")
+        </label>
+
+        <h3> Malaise or weight loss >2kg </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.weightLoss, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.weightLoss, "1")
+        </label>
+
+        <h3> Myalgia, arthralgia or artheritis </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.myalgia, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.myalgia, "1")
+        </label>
+
+        <h3>Headache</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.headache, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.headache, "1")
+        </label>
+
+        <h3> Recent histroy of spontaneous abortion </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.spontaneausAbortion, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.spontaneausAbortion, "1")
+        </label>
+
+        <h3> Seiures (not hypertensive) </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.seizures, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.seizures, "1")
+        </label>
+
+        <h3> Vertigo/dizziness </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.vertigo, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.vertigo, "1")
+        </label>
+
+        <h3>Bruits  </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.bruits, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.bruits, "1")
+        </label>
+
+        <h3> Pulse inequality </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.pulseInequality, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.pulseInequality, "1")
+        </label>
+
+        <h3>  Claudication </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.claudication, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.claudication, "1")
+        </label>
+
+        <h3> Carotidodynia </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.carotidodynia, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.carotidodynia, "1")
+        </label>
+
+        <h3> Aortic incompetence </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.aorticIncomp, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.aorticIncomp, "1")
+        </label>
+
+        <h3> Cardiomyopathy/cardiac failure </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.cardiomyopathy, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.cardiomyopathy, "1")
+        </label>
+
+        <h3> Smoking history </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.smoking, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.smoking, "1")
+        </label>
+
+        <h3> Hemoptysis </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.hemoptysis, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.hemoptysis, "1")
+        </label>
+
+        <h3>Tuberculosis history </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.tuberculosis, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.tuberculosis, "1")
+        </label>
+
+        <h3> Prior/current alcohol abuse </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.alcohol, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.alcohol, "1")
+        </label>
+
+        <h3> Fever >= 38 </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.fever, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.fever, "1")
+        </label>
+
+        <h3> Oxygen saturation less than 90% </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.oxygenSaturation, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.oxygenSaturation, "1")
+        </label>
+
+        <h3> Respiratory rate>24</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.respiratoryRate, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.respiratoryRate, "1")
+        </label>
+        <h3> Diminished brath sounds </h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.diminished, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.diminished, "1")
+        </label>
+
+        <h3>Rales</h3>
+        <label>
+            no
+            @Html.RadioButtonFor(m => m.rales, "0")
+        </label>
+        <label>
+            yes
+            @Html.RadioButtonFor(m => m.rales, "1")
+        </label>
         <input type="submit" value="Ok">
     }
 
