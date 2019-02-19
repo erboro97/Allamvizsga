@@ -194,6 +194,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HeartSurvey.cs" />
+    <Compile Include="Models\Queries.cs" />
     <Compile Include="Models\SqlRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

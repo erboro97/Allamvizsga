@@ -10,7 +10,7 @@
         $.ajax({
             type: "GET",
             dataType: 'json',
-            url: "http://localhost:58465/api/survey",
+            url: "http://localhost:58465/api/survey/heartSurvey",
             success: function (data) {
 
                 d.resolve();

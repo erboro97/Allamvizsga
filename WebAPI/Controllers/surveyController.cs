@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
@@ -14,6 +16,7 @@ namespace WebAPI.Controllers
         [HttpGet]
         public int heartSurvey()
         {
+            DataTable result = SqlRepository.runSql(Queries.getAllDiseases);
             return 1;
         }
 
