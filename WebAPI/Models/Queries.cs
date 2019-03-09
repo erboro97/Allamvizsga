@@ -7,9 +7,9 @@ namespace WebAPI.Models
 {
     public class Queries
     {
-        public static string getAllDiseases {
+        public static string getSymptomScores {
             get {
-                return "SELECT TOP (1000) [disease_id], [disease_name] FROM[Modeler].[dbo].[Disease]";
+                return "SELECT symptom_id, scores FROM[Modeler].[dbo].[Disease_Symptom_rel] where disease_id=1;";
             }
         }
     }

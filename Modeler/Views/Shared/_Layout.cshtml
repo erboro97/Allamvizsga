@@ -23,6 +23,10 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (Session["userID"] != null)
+                    {
+                    <li>@Html.ActionLink("Log Out", "LogOut", "Login")</li>
+                    }
                 </ul>
             </div>
         </div>

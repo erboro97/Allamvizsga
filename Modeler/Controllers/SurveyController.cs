@@ -7,8 +7,10 @@ using Modeler.Models.DataModels;
 
 namespace Modeler.Controllers
 {
+   
     public class SurveyController : Controller
     {
+        private HeartSurveyModel model;
         // GET: Survey
         [HttpGet]
         public ActionResult HeartSurvey()
@@ -19,6 +21,13 @@ namespace Modeler.Controllers
 
         [HttpPost]
         public ActionResult HeartSurvey(HeartSurveyModel model)
+        {
+            this.model = model;
+            return Redirect("/");
+        }
+
+        [HttpPost]
+        public ActionResult FromFrontEnd(List<DataFromJavascript> data)
         {
 
             return Redirect("/");

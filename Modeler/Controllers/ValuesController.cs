@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebApplication1.Models;
 
 namespace Api.Controllers
 {
@@ -16,6 +17,9 @@ namespace Api.Controllers
         [HttpGet]
         public object getValues()
         {
+            RungeKutta rungeKutta = new RungeKutta();
+            rungeKutta.Initialize();
+            rungeKutta.RungeKuttaMethod();
             dynamic obj = new ExpandoObject();
             obj.x = dif.getResultX0();
             obj.y = dif.getResultX1();

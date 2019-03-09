@@ -14,10 +14,10 @@ namespace WebAPI.Controllers
 
        
         [HttpGet]
-        public int heartSurvey()
+        public DataTable heartSurvey()
         {
-            DataTable result = SqlRepository.runSql(Queries.getAllDiseases);
-            return 1;
+            DataTable result = SqlRepository.runSql(Queries.getSymptomScores);
+            return result;
         }
 
         [HttpGet]

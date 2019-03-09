@@ -175,6 +175,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataModels\DataFromJavascript.cs" />
     <Compile Include="Models\DataModels\HeartSurveyModel.cs" />
     <Compile Include="Models\DifferentialEquestion.cs" />
     <Compile Include="Models\Disease.cs">
@@ -183,6 +184,7 @@
     <Compile Include="Models\Disease_Symptom_rel.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\HeartSurvey\Calculation.cs" />
     <Compile Include="Models\LoginData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

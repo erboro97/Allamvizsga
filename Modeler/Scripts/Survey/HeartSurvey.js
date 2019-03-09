@@ -5,6 +5,28 @@
 
     };
 
+    function passToController(data) {
+        data = JSON.stringify({ 'data': data });
+        var d = $.Deferred();
+        $.ajax({
+            contentType: 'application/json; charset=utf-8',
+            type: "POST",
+            traditional: true,
+            data:  data,
+            url: "../Survey/FromFrontEnd/",
+            success: function (data) {
+
+                d.resolve();
+            },
+            error: function (data, error) {
+                alert('Error in IsValidSurvey');
+                d.fail();
+            }
+        });
+
+        return d.promise();
+    }
+
     function HeartSurvey() {
         var d = $.Deferred();
         $.ajax({
@@ -12,7 +34,7 @@
             dataType: 'json',
             url: "http://localhost:58465/api/survey/heartSurvey",
             success: function (data) {
-
+                passToController(data);
                 d.resolve();
             },
             error: function (data, error) {
