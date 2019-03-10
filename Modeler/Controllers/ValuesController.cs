@@ -1,4 +1,5 @@
 ﻿using Modeler.Models;
+using Modeler.Models.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -18,11 +19,12 @@ namespace Api.Controllers
         public object getValues()
         {
             RungeKutta rungeKutta = new RungeKutta();
-            rungeKutta.Initialize();
-            rungeKutta.RungeKuttaMethod();
+            //rungeKutta.Initialize();
+            //rungeKutta.RungeKuttaMethod();
+            rungeKutta.solve();
             dynamic obj = new ExpandoObject();
-            obj.x = dif.getResultX0();
-            obj.y = dif.getResultX1();
+            obj.x = rungeKutta.getXResults();
+            obj.y = rungeKutta.getYResults();
             return obj;
         }
 

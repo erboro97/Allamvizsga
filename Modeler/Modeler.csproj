@@ -177,6 +177,7 @@
     </Compile>
     <Compile Include="Models\DataModels\DataFromJavascript.cs" />
     <Compile Include="Models\DataModels\HeartSurveyModel.cs" />
+    <Compile Include="Models\DataModels\RungeKuttaDataModel.cs" />
     <Compile Include="Models\DifferentialEquestion.cs" />
     <Compile Include="Models\Disease.cs">
       <DependentUpon>Model1.tt</DependentUpon>
