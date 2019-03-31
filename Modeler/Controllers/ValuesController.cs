@@ -6,8 +6,10 @@ using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using WebApplication1.Models;
+
 
 namespace Api.Controllers
 {
@@ -18,16 +20,22 @@ namespace Api.Controllers
         [HttpGet]
         public object getValues()
         {
-            RungeKutta rungeKutta = new RungeKutta();
-            //rungeKutta.Initialize();
-            //rungeKutta.RungeKuttaMethod();
+            double lambda;
+            try
+            {
+                lambda = double.Parse(HttpContext.Current.Session["lambda"].ToString());
+            }
+            catch (Exception e)
+            {
+                lambda = 0.6;
+            }
+            RungeKutta rungeKutta = new RungeKutta("female", lambda, 83.2);
             rungeKutta.solve();
             dynamic obj = new ExpandoObject();
-            obj.x = rungeKutta.getXResults();
+            obj.x = rungeKutta.getTResults();
             obj.y = rungeKutta.getYResults();
             return obj;
         }
-
 
         // POST api/values
         public void Post([FromBody]OdeModel value)

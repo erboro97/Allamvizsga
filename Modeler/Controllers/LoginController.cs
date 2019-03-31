@@ -27,7 +27,7 @@ namespace Modeler.Controllers
                 }
                 else
                 {
-                    // itt bele tehetem, ami meg kell
+                    // itt beletehetem, ami meg kell
                     DifferentialEquestion dif = new DifferentialEquestion();
                     Session["userID"] = userDetails.UserID;
                     Session["userType"] = userDetails.UserType;

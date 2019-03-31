@@ -1,4 +1,5 @@
 ﻿using Modeler.Models.DataModels;
+using Modeler.Models.RungeKutta;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,186 +9,165 @@ namespace WebApplication1.Models
 {
     public class RungeKutta
     {
-        //#region Set solution/iteration parameters
-        //static double tmax = 5.0;
-        //static double deltaT = 0.001;
-        //static int samples = Convert.ToInt32(tmax / deltaT);
-        //static double tStart = 0.1;
-        //static double tStop = 0.2;
-        //static double time = 0;
-        //static double k1d, k2d, k3d, k4d;
-        //static double k1w, k2w, k3w, k4w;
-        //#endregion
-
-        //#region Set machine parameters & initial conditions
-        //static double H = 10.0;
-        //static double xMachine = 0.1;
-        //static double Pm = 1.00;
-        //static double angleInit = Math.Asin(0.1);
-        //static double powerPrev = Pm;
-
-        //static double speedSync = 2 * Math.PI * 60;
-        //static double speedPrev = speedSync;
-
-        //static double damp = 0.0;
-
-        //static double a = speedSync / (2 * H);
-        //#endregion
-
-        //#region Initialize Arrays
-        //static double[] MachineAngle = new double[samples];
-        //static double[] MachineSpeed = new double[samples];
-        //static double[] MachinePowerE = new double[samples];
-        //#endregion
-
-        //public void Initialize()
-        //{
-        //    int t1 = (int)(samples * tStart / tmax);
-        //    for (int i = 0; i < t1; i++)
-        //    {
-        //        MachinePowerE[i] = Pm;
-        //        MachineAngle[i] = angleInit;
-        //        MachineSpeed[i] = speedSync;
-        //    }
-        //}
-
-        //public void RungeKuttaMethod()
-        //{
-        //    #region Define Internal Variables
-        //    double anglePrev = angleInit;
-        //    double newAngle, newSpeed, newPower;
-        //    #endregion
-
-        //    int t1 = (int)(samples * tStart / tmax);
-        //    //Start analysis after 100 samples
-
-        //    for (int i = t1; i < samples; i++)
-        //    {
-        //        time = i * deltaT;
-
-        //        #region First Estimate
-        //        k1d = speedPrev - speedSync;
-        //        k1w = a * (Pm - powerPrev);
-        //        newAngle = anglePrev + 0.5 * deltaT * k1d;
-        //        newSpeed = speedPrev + 0.5 * deltaT * k1w;
-
-        //        if (time >= tStart && time <= tStop)
-        //            newPower = 0.0;
-        //        else
-        //        {
-        //            newPower = 1.0 * Math.Sin(newAngle) / xMachine;
-        //        }
-        //        #endregion
-
-        //        #region Second Estimate
-        //        k2d = speedPrev - speedSync;
-        //        k2w = a * (Pm - newPower);
-        //        newAngle = anglePrev + 0.5 * deltaT * k2d;
-        //        newSpeed = speedPrev + 0.5 * deltaT * k2w;
-
-        //        if (time >= tStart && time <= tStop)
-        //            newPower = 0.0;
-        //        else
-        //        {
-        //            newPower = 1.0 * Math.Sin(newAngle) / xMachine;
-        //        }
-        //        #endregion
-
-        //        #region Third Estimate
-        //        k3d = newSpeed - speedSync;
-        //        k3w = a * (Pm - newPower);
-        //        newAngle = anglePrev + deltaT * k3d;
-        //        newSpeed = speedPrev + deltaT * k3w;
-
-        //        if (time >= tStart && time <= tStop)
-        //            newPower = 0.0;
-        //        else
-        //        {
-        //            newPower = 1.0 * Math.Sin(newAngle) / xMachine;
-        //        }
-        //        #endregion
-
-        //        #region Fourth estimate and final calculation of speed, angle and power
-        //        k4d = newSpeed - speedSync;
-        //        k4w = a * (Pm - newPower);
-        //        MachineAngle[i] = anglePrev + deltaT / 6 * (k1d + 2 * k2d + 2 * k3d + k4d);
-        //        MachineSpeed[i] = speedPrev + deltaT / 6 * (k1w + 2 * k2w + 2 * k3w + k4w);
-
-        //        MachinePowerE[i] = newPower;
-        //        #endregion
-        //        powerPrev = MachinePowerE[i];
-        //        anglePrev = MachineAngle[i];
-        //        speedPrev = MachineSpeed[i];
-
-        //    }
-        //}
-        private List<double> xResults;
+        private double lambda;
+        private double HR0;
+        private List<double> tResults;
         private List<double> yResults;
-        private double x;
-        private double y = 1;
+        private double t;
+        private Parameters parameters;
         private double dx = 0.1;
-        private double k1;
-        private double k2;
-        private double k3;
-        private double k4;
+        private Function k1;
+        private Function k2;
+        private Function k3;
+        private Function k4;
+        private string gender;
+        public RungeKutta(string gender, double lambda, double HR0)
+        {
+            this.gender = gender;
+            this.lambda = lambda;
+            this.HR0 = HR0;
 
-        //public void solve()
-        //    {
-        //        k1 = dx * f(x, y);
-        //        k2 = dx * f(x + dx / 2, y + k1 / 2);
-        //        k3 = dx * f(x + dx / 2, y + dx * k2 / 2);
-        //        k4 = dx * f(x + dx, y + k3);
+            k1 = new Function();
+            k2 = new Function();
+            k3 = new Function();
+            k4 = new Function();
+            parameters = new Parameters(10, 67);
+        }
 
-        //        y += 1.0 / 6.0 * (k1 + 2 * k2 + 2 * k3 + k4);
-        //        x += dx;
-        //    }
-        //}
-
-        //public double f(double x, double y)
-        //{
-        //    return x * y;
-        //}
+       
 
         public void solve()
         {
-            xResults = new List<double>();
+            tResults = new List<double>();
             yResults = new List<double>();
-            while (x < 10)
+            while (t < 10)
             {
-                k1 = dx * HR(x, y);
-                k2 = dx * HR(x + dx / 2, y + k1 / 2);
-                k3 = dx * HR(x + dx / 2, y + dx * k2 / 2);
-                k4 = dx * HR(x + dx, y + k3);
+                k1 = f(t, parameters);
+                k2 = f(t + dx / 2, new Parameters(parameters.HR+k1.f1/2, parameters.v+k1.f2/2));
+                k3 = f(t + dx / 2, new Parameters(parameters.HR+dx*k2.f1/2, parameters.v+dx*k2.f2/2));
+                k4 = f(t + dx,  new Parameters(parameters.HR+k3.f1, parameters.v+k3.f2));
 
-                y += 1.0 / 6.0 * (k1 + 2 * k2 + 2 * k3 + k4);
-                x += dx;
+                parameters.HR += (k1.f1 + 2 * k2.f1 + 2 * k3.f1 + k4.f1)/6.0;
+                parameters.v += (k1.f2 + 2 * k2.f2 + 2 * k3.f2 + k4.f2)/6.0;
+               
+                t += dx;
            
-
-                xResults.Add(x);
-                yResults.Add(y);
+                tResults.Add(t);
+                yResults.Add(parameters.v);
             }
 
 
         }
 
-        public double HR(double HR, double lamdba)
+        public Function f (double t, Parameters y)
         {
-            return fmin(HR, lamdba) * fmax(HR, lamdba);
+            Function function = new Function();
+            function.f1 = dx* fmin(y.HR) * fmax(y.HR) * fd(y.HR, y.v, t);
+            function.f2 = dx*( t);
+            return function;
+        }
+ 
+
+        
+
+        private double HRmin (double lambda)
+        {
+            switch (gender)
+            {
+                case "male":
+                    return 35.0 / lambda;
+                case "female":
+                    return 35.0 / lambda + 5;
+            }
+            return 35.0 / lambda;
+
+        }
+        private double fmin (double HR)
+        {
+            double result= 1 - Math.Exp(-1 * (Math.Pow((HR - 35.0 / lambda), 2)) / 60.0);
+            return result;
         }
 
-        private double fmin (double HR, double lamdba)
+        private double fmax (double HR)
         {
-            return 1 - Math.Exp(-1*(Math.Pow((HR-35.0/lamdba), 2))/60.0);
+            double result= -1 + Math.Exp(-1 * (Math.Pow((HR - 35.0 / lambda), 2)) / 60.0);
+            return result;
         }
 
-        private double fmax (double HR, double lamdba)
+        // HRmax mi az
+        private double omega ()
         {
-            return -1 + Math.Exp(-1 * (Math.Pow((HR - 35.0 / lamdba), 2)) / 60.0);
+            double HRmax = 120;
+            double result= 0.003 * lambda * Math.Pow((HRmax - HRmin(lambda)) / (HR0 - HRmin(lambda)), 4);
+            return result;
         }
 
-        public List<double> getXResults()
+        private double D( double v, double t)
         {
-            return xResults;
+            double Dap = Dapostroph(t, v);
+            double x = HR0 - Dapostroph(t, v);
+            double y = Math.Exp(-omega() * t * t);
+            double result= Dapostroph( t, v) + (HR0 - Dapostroph( t, v)) * Math.Exp(-omega() * t * t);
+            return result;
+        }
+        // ezt sem talaltam meg
+        //private double Dss(double lambda, double v, double t)
+        //{
+
+        //}
+        private double Dapostroph (double t, double v)
+        {
+            // return Dss(lambda, v, t) + Dla(lamdba, v, t);
+            double result= Dla( v, t);
+            return result;
+        }
+
+        private double Dla( double v, double t)
+        {
+            double result= 4*L( v, t);
+            return result;
+        }
+
+        private double vmax ()
+        {
+            double result=  20 * Math.Sqrt(lambda);
+            return result;
+        }
+        // **** random szamok Lbasal-nak Lmax-nak
+        private double Llambdav(double v)
+        {
+            double Lbasal = 0.5;
+            double Lmax = 0.9;
+
+            double result= Lbasal + (Lmax - Lbasal) * Math.Exp(0.5*(v-vmax()));
+            return result;
+        }
+        private double Lont (double t)
+        {
+            double result = 1 - Math.Exp(-t / 420);
+            return result;
+        }
+        private double L( double v, double t)
+        {
+            double result = Llambdav( v) * Lont(t);
+            return result;
+        }
+
+        private double d()
+        {
+            double result = 0.008 * lambda;
+            return result;
+        }
+
+        private double fd (double HR, double v,  double t)
+        {
+            double result = -d() * (HR - D( v, t));
+            return result;
+        }
+
+        public List<double> getTResults()
+        {
+            return tResults;
         }
 
         public List<double> getYResults()

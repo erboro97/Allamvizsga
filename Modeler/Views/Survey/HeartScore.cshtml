@@ -1,0 +1,96 @@
+﻿@model Modeler.Models.DataModels.HeartScore
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HeartScore</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <h3>History</h3>
+            <label>
+                Slightly suspicious
+                @Html.RadioButtonFor(m => m.history, 0)
+            </label>
+            <label>
+                Moderately suspicious
+                @Html.RadioButtonFor(m => m.history, 1)
+            </label>
+            <label>
+                Highly suspicious
+                @Html.RadioButtonFor(m => m.history, 2)
+            </label>
+
+
+            <h3>EKG</h3>
+            <label>
+                Normal
+                @Html.RadioButtonFor(m => m.ekg, 0)
+            </label>
+            <label>
+                Non-specific repolarization disturbance
+                @Html.RadioButtonFor(m => m.ekg, 1)
+            </label>
+            <label>
+                Significant ST deviation
+                @Html.RadioButtonFor(m => m.ekg, 2)
+            </label>
+
+            <h3>Age</h3>
+            <label>
+                Less than 45
+                @Html.RadioButtonFor(m => m.age, 0)
+            </label>
+            <label>
+                Between 45 and 64
+                @Html.RadioButtonFor(m => m.age, 1)
+            </label>
+            <label>
+                More than 65
+                @Html.RadioButtonFor(m => m.age, 2)
+            </label>
+
+
+            <h3>Risk factors</h3>
+            <label>
+                No known risk factors
+                @Html.RadioButtonFor(m => m.riskFactors, 0)
+            </label>
+            <label>
+                1-2 risk factors
+                @Html.RadioButtonFor(m => m.riskFactors, 1)
+            </label>
+            <label>
+                >=3 risk factors or history of atherosclerotic disease
+                @Html.RadioButtonFor(m => m.riskFactors, 2)
+            </label>
+
+
+
+            <h3>Initial troponin</h3>
+            <label>
+                <= normal limit
+                @Html.RadioButtonFor(m => m.initialTroponin, 0)
+            </label>
+            <label>
+                1-3x normal limit
+                @Html.RadioButtonFor(m => m.initialTroponin, 1)
+            </label>
+            <label>
+                >3x normal limit
+                @Html.RadioButtonFor(m => m.initialTroponin, 2)
+            </label>
+
+            <input type="submit" value="Ok">
+
+        }
+    </div>
+</body>
+</html>

@@ -10,20 +10,27 @@ namespace Modeler.Controllers
    
     public class SurveyController : Controller
     {
-        private HeartSurveyModel model;
+        private HeartScore model;
         // GET: Survey
         [HttpGet]
         public ActionResult HeartSurvey()
         {
             ViewBag.ApiBaseUrl = Url.Content("~/");
-            return View("HeartSurvey");
+            return View("HeartScore");
         }
 
         [HttpPost]
-        public ActionResult HeartSurvey(HeartSurveyModel model)
+        public ActionResult HeartSurvey(HeartScore model)
         {
+            //foreach()
             this.model = model;
+            double lambda = (double)model.calculateScore()/10;
+            Session["lambda"] = lambda;
+
             return Redirect("/");
+
+           // return RedirectToAction("getValues", "Values", new {  lambda});
+            
         }
 
         [HttpPost]
