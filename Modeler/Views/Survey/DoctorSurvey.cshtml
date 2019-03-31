@@ -1,10 +1,15 @@
-﻿
+﻿@model Modeler.Models.DataModels.DoctorSurveyModel
+
 
 
 <!DOCTYPE html>
 
 <html>
 <head>
+    <script src="http://localhost:58465/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/utils.js"></script>
+    <script src="~/Scripts/Survey/Helper.js"></script>
     <meta name="viewport" content="width=device-width" />
     <title>Fill the survey with patient data</title>
 
@@ -13,6 +18,120 @@
     <div>
         @using (Html.BeginForm())
         {
+            <h3> Gender </h3>
+            <label>
+                Female
+                @Html.RadioButtonFor(m => m.gender, "female")
+            </label>
+            <label>
+                Male
+                @Html.RadioButtonFor(m => m.gender, "male")
+            </label>
+
+            <h3> Heart rate initial value </h3>
+            <label>
+                @Html.TextBoxFor(m => m.hr);
+            </label>
+
+            <h3> Cardiovascular condition </h3>
+            <p><i>Choose input mode </i></p>
+            <label>
+                Fill out the survey
+                <input type="radio" name="Radio" class="InputType" value="survey" required>
+            </label>
+            <label>
+                Type the value
+                <input type="radio" name="Radio" class="InputType" value="textbox" required>
+            </label>
+
+            <div class="surveyBox" style="display:none">
+                <h3>History</h3>
+                <label>
+
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.history, 0)
+                </label>
+                <label>
+                    Moderately suspicious
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.history, 1)
+                </label>
+                <label>
+                    Highly suspicious
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.history, 2)
+                </label>
+
+
+                <h3>EKG</h3>
+                <label>
+                    Normal
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.ekg, 0)
+                </label>
+                <label>
+                    Non-specific repolarization disturbance
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.ekg, 1)
+                </label>
+                <label>
+                    Significant ST deviation
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.ekg, 2)
+                </label>
+
+                <h3>Age</h3>
+                <label>
+                    Less than 45
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.age, 0)
+                </label>
+                <label>
+                    Between 45 and 64
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.age, 1)
+                </label>
+                <label>
+                    More than 65
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.age, 2)
+                </label>
+
+
+                <h3>Risk factors</h3>
+                <label>
+                    No known risk factors
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.riskFactors, 0)
+                </label>
+                <label>
+                    1-2 risk factors
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.riskFactors, 1)
+                </label>
+                <label>
+                    >=3 risk factors or history of atherosclerotic disease
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.riskFactors, 2)
+                </label>
+
+
+
+                <h3>Initial troponin</h3>
+                <label>
+                    <= normal limit
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.initialTroponin, 0)
+                </label>
+                <label>
+                    1-3x normal limit
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.initialTroponin, 1)
+                </label>
+                <label>
+                    >3x normal limit
+                    @Html.RadioButtonFor(m => m.lambdaSurvey.initialTroponin, 2)
+                </label>
+            </div>
+            <div class="textBox" style="display:none">
+                <h3>Type cardiovascular score</h3>
+                <p><i>Cardiovascular score needs to be in [0,1]</i></p>
+                @Html.TextBoxFor(m => m.lambdaValue)
+            </div>
+
+            <h3>Initial speed of physical activity</h3>
+            <p><i>Type initial speed of pysical activity in <b>m/s</b></i></p>
+            <label>
+                @Html.TextBoxFor(m => m.v)
+            </label>
+            <input type="submit" value="Calculate">
+
         }
     </div>
 </body>

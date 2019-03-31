@@ -176,6 +176,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModels\DataFromJavascript.cs" />
+    <Compile Include="Models\DataModels\DoctorSurveyModel.cs" />
     <Compile Include="Models\DataModels\HeartSurveyModel.cs" />
     <Compile Include="Models\DataModels\RungeKuttaDataModel.cs" />
     <Compile Include="Models\DifferentialEquestion.cs" />

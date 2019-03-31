@@ -13,9 +13,9 @@ namespace Modeler.Models.DataModels
         public int riskFactors { get; set; }
         public int initialTroponin { get; set; }
 
-        public int calculateScore()
+        public double calculateScore()
         {
-            return history + ekg + age + riskFactors + initialTroponin;
+            return (double)(history + ekg + age + riskFactors + initialTroponin)/10.0;
         }
         
     }

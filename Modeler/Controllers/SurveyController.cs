@@ -7,7 +7,7 @@ using Modeler.Models.DataModels;
 
 namespace Modeler.Controllers
 {
-   
+
     public class SurveyController : Controller
     {
         private HeartScore model;
@@ -24,13 +24,25 @@ namespace Modeler.Controllers
         {
             //foreach()
             this.model = model;
-            double lambda = (double)model.calculateScore()/10;
+            double lambda = model.calculateScore();
             Session["lambda"] = lambda;
 
             return Redirect("/");
 
-           // return RedirectToAction("getValues", "Values", new {  lambda});
-            
+            // return RedirectToAction("getValues", "Values", new {  lambda});
+
+        }
+        [HttpGet]
+        public ActionResult DoctorSurvey()
+        {
+            return View("DoctorSurvey");
+        }
+
+        [HttpPost]
+        public ActionResult DoctorSurvey(DoctorSurveyModel model)
+        {
+            model.getLambdaValueFromSurvey();
+            return RedirectToAction("RedirectUserType", "Chart");
         }
 
         [HttpPost]

@@ -21,7 +21,7 @@ namespace WebApplication1.Models
         private Function k3;
         private Function k4;
         private string gender;
-        public RungeKutta(string gender, double lambda, double HR0)
+        public RungeKutta(string gender, double lambda, double HR0, double v)
         {
             this.gender = gender;
             this.lambda = lambda;
@@ -31,7 +31,7 @@ namespace WebApplication1.Models
             k2 = new Function();
             k3 = new Function();
             k4 = new Function();
-            parameters = new Parameters(10, 67);
+            parameters = new Parameters(v, HR0);
         }
 
        

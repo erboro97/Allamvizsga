@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Modeler.Models.DataModels
+{
+    public class DoctorSurveyModel
+    {
+        public string gender { get; set; }
+        public double hr { get; set; }
+        public HeartScore lambdaSurvey { get; set; }
+        public double? lambdaValue { get; set; }
+        public double v { get; set; }
+
+        public void getLambdaValueFromSurvey()
+        {
+            if (lambdaValue == null)
+            {
+                lambdaValue = lambdaSurvey.calculateScore();
+            }
+        }
+
+    }
+}

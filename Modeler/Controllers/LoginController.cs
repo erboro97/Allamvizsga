@@ -28,10 +28,9 @@ namespace Modeler.Controllers
                 else
                 {
                     // itt beletehetem, ami meg kell
-                    DifferentialEquestion dif = new DifferentialEquestion();
                     Session["userID"] = userDetails.UserID;
                     Session["userType"] = userDetails.UserType;
-                    return RedirectToAction("RedirectUserType", "Chart");
+                    return RedirectToAction("DoctorSurvey", "Survey");
                 }
             }
         }
