@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Modeler.Models;
 using Modeler.Models.DataModels;
+using Modeler.Models.SqlRepository;
 
 namespace Modeler.Controllers
 {
@@ -41,7 +43,11 @@ namespace Modeler.Controllers
         [HttpPost]
         public ActionResult DoctorSurvey(DoctorSurveyModel model)
         {
-            model.getLambdaValueFromSurvey();
+
+            Client_Survey clientSurvey = new Client_Survey();
+            clientSurvey = model.formatToDatabaseStructure(Session["userID"].ToString().Trim());
+            Query query = new Query();
+            query.insertClientSurveyTable(clientSurvey);
             return RedirectToAction("RedirectUserType", "Chart");
         }
 

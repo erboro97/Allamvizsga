@@ -6,6 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="c32c7a099ae642879370237a384e05da" Name="Diagram1">
         <EntityTypeShape EntityType="ModelerModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelerModel.Client_Survey" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelerModel.Disease" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ModelerModel.Symptom" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ModelerModel.Disease_Symptom_rel" Width="1.5" PointX="4.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

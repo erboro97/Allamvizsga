@@ -29,6 +29,7 @@ namespace Api.Controllers
             {
                 lambda = 0.6;
             }
+           
             RungeKutta rungeKutta = new RungeKutta("female", lambda, 83.2, 10);
             rungeKutta.solve();
             dynamic obj = new ExpandoObject();

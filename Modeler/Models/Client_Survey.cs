@@ -12,11 +12,13 @@ namespace Modeler.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Disease_Symptom_rel
+    public partial class Client_Survey
     {
-        public int disease_id { get; set; }
-        public int symptom_id { get; set; }
-        public string scores { get; set; }
-        public Nullable<int> type { get; set; }
+        public int id { get; set; }
+        public string user_id { get; set; }
+        public string gender { get; set; }
+        public double lambda { get; set; }
+        public double HR { get; set; }
+        public double v { get; set; }
     }
 }

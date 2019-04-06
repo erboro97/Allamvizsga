@@ -175,16 +175,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Client_Survey.cs">
+      <DependentUpon>LoginData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataModels\DataFromJavascript.cs" />
     <Compile Include="Models\DataModels\DoctorSurveyModel.cs" />
     <Compile Include="Models\DataModels\HeartSurveyModel.cs" />
     <Compile Include="Models\DataModels\RungeKuttaDataModel.cs" />
     <Compile Include="Models\DifferentialEquestion.cs" />
     <Compile Include="Models\Disease.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LoginData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Disease_Symptom_rel.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LoginData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HeartSurvey\Calculation.cs" />
     <Compile Include="Models\DataModels\HeartScore.cs" />
@@ -203,31 +206,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginData.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\OdeModel.cs" />
     <Compile Include="Models\ReadFromFile.cs" />
     <Compile Include="Models\RungeKutta\Function.cs" />
     <Compile Include="Models\RungeKutta\Parameters.cs" />
     <Compile Include="Models\RungeKutta\RungeKutta.cs" />
+    <Compile Include="Models\SqlRepository\Query.cs" />
+    <Compile Include="Models\SqlRepository\Repository.cs" />
     <Compile Include="Models\Symptom.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LoginData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LoginData.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -250,16 +240,6 @@
       <DependentUpon>LoginData.edmx</DependentUpon>
       <LastGenOutput>LoginData.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\Account.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -272,13 +252,6 @@
     </EntityDeploy>
     <Content Include="Models\LoginData.edmx.diagram">
       <DependentUpon>LoginData.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Charts\charts.js" />

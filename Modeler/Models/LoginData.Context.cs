@@ -18,7 +18,6 @@ namespace Modeler.Models
         public ModelerEntities()
             : base("name=ModelerEntities")
         {
-
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -27,5 +26,9 @@ namespace Modeler.Models
         }
     
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Client_Survey> Client_Survey { get; set; }
+        public virtual DbSet<Disease> Diseases { get; set; }
+        public virtual DbSet<Symptom> Symptoms { get; set; }
+        public virtual DbSet<Disease_Symptom_rel> Disease_Symptom_rel { get; set; }
     }
 }

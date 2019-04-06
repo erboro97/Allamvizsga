@@ -21,5 +21,19 @@ namespace Modeler.Models.DataModels
             }
         }
 
+        public Client_Survey formatToDatabaseStructure (string userId)
+        {
+            getLambdaValueFromSurvey();
+            Client_Survey surveyData = new Client_Survey()
+            {
+                gender=this.gender,
+                HR=this.hr,
+                lambda=lambdaValue ?? default(double),
+                user_id=userId,
+                v=this.v
+            };
+            return surveyData;
+        }
+
     }
 }
