@@ -20,5 +20,6 @@ namespace Modeler.Models
         public double lambda { get; set; }
         public double HR { get; set; }
         public double v { get; set; }
+        public Nullable<System.DateTime> inserted_dtm { get; set; }
     }
 }

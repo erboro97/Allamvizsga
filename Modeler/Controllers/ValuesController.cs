@@ -1,5 +1,6 @@
 ﻿using Modeler.Models;
 using Modeler.Models.DataModels;
+using Modeler.Models.SqlRepository;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -15,11 +16,14 @@ namespace Api.Controllers
 {
     public class ValuesController : ApiController
     {
+       
         private DifferentialEquestion dif = new DifferentialEquestion();
- 
+    
         [HttpGet]
         public object getValues()
         {
+            Query query = new Query();
+            var userAnswers = query.listUserData("1");
             double lambda;
             try
             {

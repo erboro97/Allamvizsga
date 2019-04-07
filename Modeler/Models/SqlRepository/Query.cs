@@ -35,5 +35,11 @@ namespace Modeler.Models.SqlRepository
             }
             
         }
+
+        public List<Client_Survey> listUserData (string userId)
+        {
+            var surveyData = db.Surveys.Where(d => d.user_id==userId).ToList();
+            return surveyData;
+        }
     }
 }

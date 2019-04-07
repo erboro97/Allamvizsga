@@ -12,7 +12,7 @@ namespace Modeler.Controllers
         public ActionResult RedirectUserType()
         {
             string userType = Session["userType"].ToString().Trim();
-
+            ViewBag.UserId = Session["userID"].ToString().Trim();
             switch (userType)
             {
                 case "doctor":

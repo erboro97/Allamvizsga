@@ -15,6 +15,7 @@
           <Property Name="lambda" Type="float" Nullable="false" />
           <Property Name="HR" Type="float" Nullable="false" />
           <Property Name="v" Type="float" Nullable="false" />
+          <Property Name="inserted_dtm" Type="datetime2" Precision="7" />
         </EntityType>
         <EntityType Name="Disease">
           <Key>
@@ -96,6 +97,7 @@ warning 6002: The table/view 'Modeler.dbo.Disease_Symptom_rel' does not have a p
           <Property Name="lambda" Type="Double" Nullable="false" />
           <Property Name="HR" Type="Double" Nullable="false" />
           <Property Name="v" Type="Double" Nullable="false" />
+          <Property Name="inserted_dtm" Type="DateTime" Precision="7" />
         </EntityType>
         <EntityType Name="Disease">
           <Key>
@@ -141,6 +143,7 @@ warning 6002: The table/view 'Modeler.dbo.Disease_Symptom_rel' does not have a p
           <EntitySetMapping Name="Client_Survey">
             <EntityTypeMapping TypeName="ModelerModel.Client_Survey">
               <MappingFragment StoreEntitySet="Client_Survey">
+                <ScalarProperty Name="inserted_dtm" ColumnName="inserted_dtm" />
                 <ScalarProperty Name="v" ColumnName="v" />
                 <ScalarProperty Name="HR" ColumnName="HR" />
                 <ScalarProperty Name="lambda" ColumnName="lambda" />

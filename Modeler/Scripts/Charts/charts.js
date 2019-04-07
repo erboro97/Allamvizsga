@@ -1,6 +1,10 @@
 ﻿
 
 $(document).ready(function () {
+    var settings = {
+        userId : $('#UserId').val()
+    };
+    var userIdNumber = Number(settings.userId);
     $.get("http://localhost:54231/api/Values/getValues", function (data) {
         var chart = new Highcharts.Chart({
             chart: {

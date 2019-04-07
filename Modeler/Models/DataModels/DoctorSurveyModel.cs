@@ -30,8 +30,9 @@ namespace Modeler.Models.DataModels
                 HR=this.hr,
                 lambda=lambdaValue ?? default(double),
                 user_id=userId,
-                v=this.v
-            };
+                v=this.v,
+                inserted_dtm= DateTime.Now
+        };
             return surveyData;
         }
 
