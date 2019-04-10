@@ -211,6 +211,7 @@
     <Compile Include="Models\RungeKutta\Function.cs" />
     <Compile Include="Models\RungeKutta\Parameters.cs" />
     <Compile Include="Models\RungeKutta\RungeKutta.cs" />
+    <Compile Include="Models\RungeKutta\RungeKuttaV2.cs" />
     <Compile Include="Models\SqlRepository\Query.cs" />
     <Compile Include="Models\SqlRepository\Repository.cs" />
     <Compile Include="Models\Symptom.cs">

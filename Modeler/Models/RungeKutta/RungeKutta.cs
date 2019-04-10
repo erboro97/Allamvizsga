@@ -12,14 +12,15 @@ namespace WebApplication1.Models
         private double lambda;
         private double HR0;
         private List<double> tResults;
-        private List<double> yResults;
-        private double t;
-        private Parameters parameters;
+        private List<double> HRResults;
+        private List<double> vResults;
+        private double t=0;
         private double dx = 0.1;
-        private Function k1;
-        private Function k2;
-        private Function k3;
-        private Function k4;
+        private double[] k1;
+        private double[] k2;
+        private double[] k3;
+        private double[] k4;
+        private double[] y;
         private string gender;
         public RungeKutta(string gender, double lambda, double HR0, double v)
         {
@@ -27,46 +28,83 @@ namespace WebApplication1.Models
             this.lambda = lambda;
             this.HR0 = HR0;
 
-            k1 = new Function();
-            k2 = new Function();
-            k3 = new Function();
-            k4 = new Function();
-            parameters = new Parameters(v, HR0);
-        }
+            k1 = new double[2];
+            k2 = new double[2];
+            k3 = new double[2];
+            k4 = new double[2];
+            y = new double[2];
+            tResults = new List<double>();
+            HRResults = new List<double>();
+            vResults = new List<double>();
+            y[0] = 0.9;
+            y[1] = 0.9;
+         }
 
-       
+       /// <summary>
+       /// milyen betegseget tudunk ezzel elore jelezni
+       /// </summary>
 
         public void solve()
         {
-            tResults = new List<double>();
-            yResults = new List<double>();
-            while (t < 10)
+            int i = 0;
+            while (i <= 100)
             {
-                k1 = f(t, parameters);
-                k2 = f(t + dx / 2, new Parameters(parameters.HR+k1.f1/2, parameters.v+k1.f2/2));
-                k3 = f(t + dx / 2, new Parameters(parameters.HR+dx*k2.f1/2, parameters.v+dx*k2.f2/2));
-                k4 = f(t + dx,  new Parameters(parameters.HR+k3.f1, parameters.v+k3.f2));
+                i++;
+                k1 = dEqs(t, y, dx);
+                k2 = dEqs(t + dx / 2, plus(y, mult(k1, 0.5)), dx);
+                k3 = dEqs(t + dx / 2, plus(y, mult(k2, 0.5)), dx);
+                k4 = dEqs(t + dx, plus(y, k3), dx);
 
-                parameters.HR += (k1.f1 + 2 * k2.f1 + 2 * k3.f1 + k4.f1)/6.0;
-                parameters.v += (k1.f2 + 2 * k2.f2 + 2 * k3.f2 + k4.f2)/6.0;
-               
+                y = plus(y, mult(plus(k1, plus(mult(k2, 2), plus(mult(k3, 2), k4))), 0.16666));
                 t += dx;
-           
                 tResults.Add(t);
-                yResults.Add(parameters.v);
+                HRResults.Add(y[0]);
+                vResults.Add(y[1]);
+
             }
 
 
         }
 
+        double[] plus(double[] x, double[] y)
+        {
+            double[] result = new double[2];
+            result[0] = x[0] + y[0];
+            result[1] = x[1] + y[1];
+            return result;
+        }
+        double[] mult(double[] y, double value)
+        {
+            double[] result = new double[2];
+            result[0] = y[0] * value;
+            result[1] = y[1] * value;
+            return result;
+        }
+       
+
+        double[] dEqs(double x, double[] y, double h)
+        {
+            double[] result = new double[2];
+            result[0] = (2.0 / 3.0 * y[0] - (4.0 / 3.0) * y[0] * y[1]) * h;
+            result[1] = (y[0] * y[1] - y[1]) * h;
+            return result;
+        }
+        //public Function f (double t, Parameters y)
+        //{
+        //    Function function = new Function();
+        //    function.f1 = dx* fmin(y.HR) * fmax(y.HR) * fd(y.HR, y.v, t);
+        //    function.f2 = dx*( t);
+        //    return function;
+        //}
+
         public Function f (double t, Parameters y)
         {
+            //x=y.v, y=y.HR
             Function function = new Function();
-            function.f1 = dx* fmin(y.HR) * fmax(y.HR) * fd(y.HR, y.v, t);
-            function.f2 = dx*( t);
+            function.f1 = dx * ((2.0 / 3.0) * y.HR- (4.0 / 3.0) * y.HR* y.v);
+            function.f2 = dx * ( y.HR * y.v - y.v);
             return function;
         }
- 
 
         
 
@@ -170,10 +208,17 @@ namespace WebApplication1.Models
             return tResults;
         }
 
-        public List<double> getYResults()
+        public List<double> getHRResults()
         {
-            return yResults;
+            return HRResults;
         }
+
+        public List<double> getvResults()
+        {
+            return vResults;
+        }
+
+
 
     }
 }

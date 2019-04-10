@@ -1,5 +1,6 @@
 ﻿using Modeler.Models;
 using Modeler.Models.DataModels;
+using Modeler.Models.RungeKutta;
 using Modeler.Models.SqlRepository;
 using System;
 using System.Collections.Generic;
@@ -19,26 +20,49 @@ namespace Api.Controllers
        
         private DifferentialEquestion dif = new DifferentialEquestion();
     
-        [HttpGet]
+        [HttpGet()]
         public object getValues()
         {
             Query query = new Query();
             var userAnswers = query.listUserData("1");
-            double lambda;
-            try
-            {
-                lambda = double.Parse(HttpContext.Current.Session["lambda"].ToString());
-            }
-            catch (Exception e)
-            {
-                lambda = 0.6;
-            }
-           
-            RungeKutta rungeKutta = new RungeKutta("female", lambda, 83.2, 10);
-            rungeKutta.solve();
+            //List<double[]> results = new List<double[]>();
+            //RungeKuttaV2 rungeKuttav = new RungeKuttaV2();
+            //results=rungeKuttav.solve();
+            //List<double> r = new List<double>();
+            //List<double> t = new List<double>();
+            
+            //for (int j= 0; j < 100; j++)
+            //{
+            //    r.Add(results[j][0]);
+            //    t.Add(j);
+            //}
+            
             dynamic obj = new ExpandoObject();
-            obj.x = rungeKutta.getTResults();
-            obj.y = rungeKutta.getYResults();
+            int i = 0;
+            string index;
+            
+            RungeKutta rungeKutta = new RungeKutta("female", 0.4, 56, 3);
+            rungeKutta.solve();
+            obj.t = rungeKutta.getTResults();
+            obj.x = rungeKutta.getvResults();
+           // obj.x = rungeKutta.getHRResults();
+            //obj.y = rungeKutta.getHRResults();
+
+            //foreach (var userAnswer in userAnswers)
+            //{
+            //    RungeKutta rungeKutta = new RungeKutta(userAnswer.gender, userAnswer.lambda, userAnswer.HR, userAnswer.v);
+            //    rungeKutta.solve();
+            //    index = i.ToString();
+            //    i++;
+            //    obj. = rungeKutta.getTResults();
+
+            //    index = i.ToString();
+            //    obj.index = rungeKutta.getYResults();
+
+            //}
+            
+            
+       
             return obj;
         }
 

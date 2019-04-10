@@ -53,7 +53,7 @@ $(document).ready(function () {
                 data: (function () {
                     var category = ['x'];
                     var mySeries = [];
-                    myData = [data.x, data.y];
+                    myData = [data.t, data.x];
                     for (var i = 0; i < myData[0].length; i++) {
                         mySeries.push([myData[1][i], myData[0][i]]);
                     }
