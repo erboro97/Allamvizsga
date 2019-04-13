@@ -53,7 +53,7 @@ $(document).ready(function () {
                 data: (function () {
                     var category = ['x'];
                     var mySeries = [];
-                    myData = [data.t, data.x];
+                    myData = [data.t0, data.x0];
                     for (var i = 0; i < myData[0].length; i++) {
                         mySeries.push([myData[1][i], myData[0][i]]);
                     }
@@ -61,7 +61,22 @@ $(document).ready(function () {
 
                     return mySeries;
                 }())
-            }]
+            },
+                {
+                    name: 'Segment1',
+                    data: (function () {
+                        var category = ['x'];
+                        var mySeries = [];
+                        myData = [data.t1, data.x1];
+                        for (var i = 0; i < myData[0].length; i++) {
+                            mySeries.push([myData[1][i], myData[0][i]]);
+                        }
+
+
+                        return mySeries;
+                    }())
+                }
+            ]
         })
    })
  });
