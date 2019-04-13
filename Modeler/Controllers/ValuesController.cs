@@ -41,10 +41,15 @@ namespace Api.Controllers
             int i = 0;
             string index;
             
-            RungeKutta rungeKutta = new RungeKutta("female", 0.4, 56, 3);
+            RungeKutta rungeKutta = new RungeKutta("female", 0.4, 90, 3);
             rungeKutta.solve();
+            List<double> v = new List<double>();
+            List<double> HR = new List<double>();
+            v = rungeKutta.getvResults();
+            HR = rungeKutta.getHRResults();
             obj.t = rungeKutta.getTResults();
-            obj.x = rungeKutta.getvResults();
+            obj.x = rungeKutta.getHRResults() ;
+            
            // obj.x = rungeKutta.getHRResults();
             //obj.y = rungeKutta.getHRResults();
 
