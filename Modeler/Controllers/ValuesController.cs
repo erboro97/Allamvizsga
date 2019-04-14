@@ -15,65 +15,12 @@ using WebApplication1.Models;
 
 namespace Api.Controllers
 {
+   
     public class ValuesController : ApiController
     {
        
         private DifferentialEquestion dif = new DifferentialEquestion();
     
-        [HttpGet()]
-        public object getValues()
-        {
-            Query query = new Query();
-            var userAnswers = query.listUserData("1");
-            //List<double[]> results = new List<double[]>();
-            //RungeKuttaV2 rungeKuttav = new RungeKuttaV2();
-            //results=rungeKuttav.solve();
-            //List<double> r = new List<double>();
-            //List<double> t = new List<double>();
-
-            //for (int j= 0; j < 100; j++)
-            //{
-            //    r.Add(results[j][0]);
-            //    t.Add(j);
-            //}
-
-            
-            var obj = new ExpandoObject() as IDictionary<string, Object>;
-            int i = 0;
-            string index;
-
-            //RungeKutta rungeKutta = new RungeKutta("female", 0.1, 60, 1);
-            //RungeKutta rungeKutta2 = new RungeKutta("male", 0.9, 110, 4);
-            //rungeKutta.solve();
-            //List<double> v = new List<double>();
-            //List<double> HR = new List<double>();
-            //v = rungeKutta.getvResults();
-            //HR = rungeKutta.getHRResults();
-            //obj.t = rungeKutta.getTResults();
-            //obj.x = rungeKutta.getHRResults() ;
-            //rungeKutta2.solve();
-            //obj.t1 = rungeKutta2.getTResults();
-            //obj.x1 = rungeKutta2.getHRResults();
-            // obj.x = rungeKutta.getHRResults();
-            //obj.y = rungeKutta.getHRResults();
-            obj.Add("size", userAnswers.Count);
-            foreach (var userAnswer in userAnswers)
-            {
-                RungeKutta rungeKutta = new RungeKutta(userAnswer.gender, userAnswer.lambda, userAnswer.HR, userAnswer.v);
-                rungeKutta.solve();
-                index = i.ToString();
-                i++;
-                obj.Add("t" + index, rungeKutta.getTResults());
-                obj.Add("x" + index, rungeKutta.getHRResults());
-
-              
-
-            }
-
-
-
-            return obj;
-        }
 
         // POST api/values
         public void Post([FromBody]OdeModel value)
@@ -86,11 +33,44 @@ namespace Api.Controllers
         {
             dif.getResults()[id] = value;
         }
+        [HttpGet]
+        public object getValues(int id)
+        {
+            Query query = new Query();
+            var userAnswers = query.listUserData(id.ToString());
+          
+
+            var obj = new ExpandoObject() as IDictionary<string, Object>;
+            int i = 0;
+            string index;
+
+           
+            obj.Add("size", userAnswers.Count);
+            foreach (var userAnswer in userAnswers)
+            {
+                RungeKutta rungeKutta = new RungeKutta(userAnswer.gender, userAnswer.lambda, userAnswer.HR, userAnswer.v);
+                rungeKutta.solve();
+                index = i.ToString();
+                i++;
+                ODEResultModel results = new ODEResultModel(rungeKutta.getHRResults(), rungeKutta.getvResults(), rungeKutta.getTResults());
+                
+                obj.Add("r" + index, results);
+
+
+
+            }
+
+
+
+            return obj;
+        }
 
         // DELETE api/values/5
         public void Delete(int id)
         {
             dif.getResults().RemoveAt(id);
         }
+
+
     }
 }
