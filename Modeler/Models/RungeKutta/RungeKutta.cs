@@ -93,7 +93,7 @@ namespace WebApplication1.Models
         {
             double[] function = new double[2];
             function[0] = dx * fmin(y[0]) * fmax(y[0]) * fd(y[0], y[1], t);
-            function[1] = dx;
+            function[1] = 0;
             return function;
         }
 

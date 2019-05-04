@@ -24,14 +24,11 @@ namespace Modeler.Controllers
         [HttpPost]
         public ActionResult HeartSurvey(HeartScore model)
         {
-            //foreach()
             this.model = model;
             double lambda = model.calculateScore();
             Session["lambda"] = lambda;
 
-            return Redirect("/");
-
-            // return RedirectToAction("getValues", "Values", new {  lambda});
+            return RedirectToAction("RedirectUserType", "Chart");
 
         }
         [HttpGet]

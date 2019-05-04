@@ -18,33 +18,21 @@ namespace Api.Controllers
    
     public class ValuesController : ApiController
     {
-       
-        private DifferentialEquestion dif = new DifferentialEquestion();
-    
 
-        // POST api/values
-        public void Post([FromBody]OdeModel value)
-        {
-            dif.getResults().Add(value);
-        }
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody]OdeModel value)
-        {
-            dif.getResults()[id] = value;
-        }
+        // Doctor survey's method
         [HttpGet]
         public object getValues(int id)
         {
             Query query = new Query();
             var userAnswers = query.listUserData(id.ToString());
-          
+
 
             var obj = new ExpandoObject() as IDictionary<string, Object>;
             int i = 0;
             string index;
 
-           
+
             obj.Add("size", userAnswers.Count);
             foreach (var userAnswer in userAnswers)
             {
@@ -53,23 +41,27 @@ namespace Api.Controllers
                 index = i.ToString();
                 i++;
                 ODEResultModel results = new ODEResultModel(rungeKutta.getHRResults(), rungeKutta.getvResults(), rungeKutta.getTResults());
-                
+
                 obj.Add("r" + index, results);
-
-
-
             }
-
-
 
             return obj;
         }
 
-        // DELETE api/values/5
-        public void Delete(int id)
+
+        [HttpGet]
+        public object getLambdaValues(int id)
         {
-            dif.getResults().RemoveAt(id);
+            Query query = new Query();
+            var userLambdaValues = query.lambdaUserValues("1");
+            var obj = new ExpandoObject() as IDictionary<string, Object>;
+            obj.Add("lambda", userLambdaValues);
+            return obj;
+
         }
+
+
+      
 
 
     }

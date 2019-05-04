@@ -1,23 +1,21 @@
 ﻿
 <!DOCTYPE html>
-
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>PatientChartView</title>
-</head>
+<header>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/Charts/lambdaChart.js"></script>
+</header>
 <body>
-    <h2>
-        Welcome! You are a potential patient. If you want to estimate that what kind of heart sickness could you have, you can fill out our survey.
-    </h2>
-    <input type="button" id="surveyBtn" value="Fill out the survey"/>
+    <div id="container">
+        <input type="hidden" id="UserId" value="@ViewBag.UserId" />
+        Patient
+    </div>
 </body>
-
 </html>
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script type="text/javascript">
- $('#surveyBtn').click(function () {
-        document.location = '@Url.Action("HeartSurvey","Survey")';
-    });
-</script>
-@*<script src="~/Scripts/Survey/Helper.js"></script>*@
+
+
+

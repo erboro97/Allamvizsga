@@ -41,5 +41,12 @@ namespace Modeler.Models.SqlRepository
             var surveyData = db.Surveys.Where(d => d.user_id==userId).ToList();
             return surveyData;
         }
+
+        public List<double> lambdaUserValues (string userId)
+        {
+            var lambdas = db.Surveys.OrderBy(e => e.inserted_dtm).Where(s => s.user_id == userId).Select(d => d.lambda).ToList();
+          
+            return lambdas;
+        }
     }
 }

@@ -30,6 +30,10 @@ namespace Modeler.Controllers
                     // itt beletehetem, ami meg kell
                     Session["userID"] = userDetails.UserID;
                     Session["userType"] = userDetails.UserType;
+                    if (userDetails.UserType.Trim() == "patient")
+                    {
+                        return RedirectToAction("HeartSurvey", "Survey");
+                    }
                     return RedirectToAction("DoctorSurvey", "Survey");
                 }
             }

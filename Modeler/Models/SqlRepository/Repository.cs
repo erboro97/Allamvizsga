@@ -63,7 +63,5 @@ namespace Modeler.Models.SqlRepository
 
             return dataTable;
         }
-
-
     }
 }

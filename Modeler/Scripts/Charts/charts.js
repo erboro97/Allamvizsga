@@ -14,7 +14,6 @@ $(document).ready(function () {
             chart: {
                 renderTo: 'container',
                 type: 'spline',
-                inverted: true
             },
 
             xAxis: {
@@ -57,7 +56,7 @@ $(document).ready(function () {
                 data: (function () {
                     var category = ['x'];
                     var mySeries = [];
-                    myData = [data.r0.t, data.r0.v];
+                    myData = [data.r0.t, data.r0.hr];
                     for (var i = 0; i < myData[0].length; i++) {
                         mySeries.push([myData[1][i], myData[0][i]]);
                     }
@@ -65,42 +64,10 @@ $(document).ready(function () {
 
                     return mySeries;
                 }())
-            },
-                {
-                    name: 'Segment1',
-                    data: (function () {
-                        var category = ['x'];
-                        var mySeries = [];
-                        myData = [data.r1.t, data.r1.v];
-                        for (var i = 0; i < myData[0].length; i++) {
-                            mySeries.push([myData[1][i], myData[0][i]]);
-                        }
-
-
-                        return mySeries;
-                    }())
-                }
+            }
             ]
         })
         $('#button').click(function () {
-
-            //for (var i = 2; i < settings.answers.size; i++) {
-            //    chart.addSeries({
-            //        name: 'Segment' + i,
-            //        data: (function (i) {
-            //            var category = ['x'];
-            //            var mySeries = [];
-            //            myData = [eval("settings.answers.t" + i), eval("settings.answers.x"+i)];
-            //            for (var j = 0; j < myData[0].length; j++) {
-            //                mySeries.push([myData[1][j], myData[0][j]]);
-            //            }
-
-
-            //            return mySeries;
-            //        }())
-            //    })
-             
-            //}
 
             $.each(settings.answers, function (key, value) {
                 if (key != "size") {
@@ -109,7 +76,7 @@ $(document).ready(function () {
                         data: (function () {
                             var category = ['x'];
                             var mySeries = [];
-                            myData = [value.t, value.v];
+                            myData = [value.t, value.hr];
                             for (var j = 0; j < myData[0].length; j++) {
                                 mySeries.push([myData[1][j], myData[0][j]]);
                             }
