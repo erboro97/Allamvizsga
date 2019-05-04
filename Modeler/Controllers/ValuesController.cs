@@ -53,7 +53,7 @@ namespace Api.Controllers
         public object getLambdaValues(int id)
         {
             Query query = new Query();
-            var userLambdaValues = query.lambdaUserValues("1");
+            var userLambdaValues = query.lambdaUserValues(id.ToString());
             var obj = new ExpandoObject() as IDictionary<string, Object>;
             obj.Add("lambda", userLambdaValues);
             return obj;

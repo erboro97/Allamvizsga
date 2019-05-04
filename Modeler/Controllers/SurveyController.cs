@@ -22,12 +22,13 @@ namespace Modeler.Controllers
         }
 
         [HttpPost]
-        public ActionResult HeartSurvey(HeartScore model)
+        public ActionResult HeartSurvey(DoctorSurveyModel model)
         {
-            this.model = model;
-            double lambda = model.calculateScore();
-            Session["lambda"] = lambda;
-
+            Client_Survey clientSurvey = new Client_Survey();
+            clientSurvey = model.formatToDatabaseStructure(Session["userID"].ToString().Trim());
+            clientSurvey.v = -1;
+            Query query = new Query();
+            query.insertClientSurveyTable(clientSurvey);
             return RedirectToAction("RedirectUserType", "Chart");
 
         }

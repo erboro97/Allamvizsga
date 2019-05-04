@@ -38,7 +38,7 @@ namespace Modeler.Models.SqlRepository
 
         public List<Client_Survey> listUserData (string userId)
         {
-            var surveyData = db.Surveys.Where(d => d.user_id==userId).ToList();
+            var surveyData = db.Surveys.OrderBy(e => e.inserted_dtm).Where(d => d.user_id==userId && d.v>=0).ToList();
             return surveyData;
         }
 

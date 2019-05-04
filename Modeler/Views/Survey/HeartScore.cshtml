@@ -1,4 +1,4 @@
-﻿@model Modeler.Models.DataModels.HeartScore
+﻿@model Modeler.Models.DataModels.DoctorSurveyModel
 
 
 
@@ -14,62 +14,76 @@
     <div>
         @using (Html.BeginForm())
         {
+            <h3> Gender </h3>
+            <label>
+                Female
+                @Html.RadioButtonFor(m => m.gender, "female")
+            </label>
+            <label>
+                Male
+                @Html.RadioButtonFor(m => m.gender, "male")
+            </label>
+
+            <h3> Heart rate initial value </h3>
+            <label>
+                @Html.TextBoxFor(m => m.hr);
+            </label>
             <h3>History</h3>
             <label>
-                
-                @Html.RadioButtonFor(m => m.history, 0)
+
+                @Html.RadioButtonFor(m => m.lambdaSurvey.history, 0)
             </label>
             <label>
                 Moderately suspicious
-                @Html.RadioButtonFor(m => m.history, 1)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.history, 1)
             </label>
             <label>
                 Highly suspicious
-                @Html.RadioButtonFor(m => m.history, 2)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.history, 2)
             </label>
 
 
             <h3>EKG</h3>
             <label>
                 Normal
-                @Html.RadioButtonFor(m => m.ekg, 0)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.ekg, 0)
             </label>
             <label>
                 Non-specific repolarization disturbance
-                @Html.RadioButtonFor(m => m.ekg, 1)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.ekg, 1)
             </label>
             <label>
                 Significant ST deviation
-                @Html.RadioButtonFor(m => m.ekg, 2)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.ekg, 2)
             </label>
 
             <h3>Age</h3>
             <label>
                 Less than 45
-                @Html.RadioButtonFor(m => m.age, 0)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.age, 0)
             </label>
             <label>
                 Between 45 and 64
-                @Html.RadioButtonFor(m => m.age, 1)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.age, 1)
             </label>
             <label>
                 More than 65
-                @Html.RadioButtonFor(m => m.age, 2)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.age, 2)
             </label>
 
 
             <h3>Risk factors</h3>
             <label>
                 No known risk factors
-                @Html.RadioButtonFor(m => m.riskFactors, 0)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.riskFactors, 0)
             </label>
             <label>
                 1-2 risk factors
-                @Html.RadioButtonFor(m => m.riskFactors, 1)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.riskFactors, 1)
             </label>
             <label>
                 >=3 risk factors or history of atherosclerotic disease
-                @Html.RadioButtonFor(m => m.riskFactors, 2)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.riskFactors, 2)
             </label>
 
 
@@ -77,16 +91,17 @@
             <h3>Initial troponin</h3>
             <label>
                 <= normal limit
-                @Html.RadioButtonFor(m => m.initialTroponin, 0)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.initialTroponin, 0)
             </label>
             <label>
                 1-3x normal limit
-                @Html.RadioButtonFor(m => m.initialTroponin, 1)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.initialTroponin, 1)
             </label>
             <label>
                 >3x normal limit
-                @Html.RadioButtonFor(m => m.initialTroponin, 2)
+                @Html.RadioButtonFor(m => m.lambdaSurvey.initialTroponin, 2)
             </label>
+
 
             <input type="submit" value="Ok">
 
