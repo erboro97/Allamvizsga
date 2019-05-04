@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,7 +13,6 @@ namespace Modeler.Controllers
 
     public class SurveyController : Controller
     {
-        private HeartScore model;
         // GET: Survey
         [HttpGet]
         public ActionResult HeartSurvey()
@@ -56,6 +56,12 @@ namespace Modeler.Controllers
             return Redirect("/");
         }
 
-   
+        [HttpGet]
+        public ActionResult getPatients()
+        {
+            Query query = new Query();
+            var patients = query.getPatients();
+            return Json(patients, JsonRequestBehavior.AllowGet);
+        }
     }
 }
