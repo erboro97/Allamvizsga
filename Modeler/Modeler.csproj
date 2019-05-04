@@ -182,6 +182,7 @@
     <Compile Include="Models\DataModels\DoctorSurveyModel.cs" />
     <Compile Include="Models\DataModels\HeartSurveyModel.cs" />
     <Compile Include="Models\DataModels\ODEResultModel.cs" />
+    <Compile Include="Models\DataModels\PatientDataModel.cs" />
     <Compile Include="Models\DataModels\RungeKuttaDataModel.cs" />
     <Compile Include="Models\DifferentialEquestion.cs" />
     <Compile Include="Models\Disease.cs">
@@ -268,6 +269,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Survey\DoctorChartHelper.js" />
     <Content Include="Scripts\Survey\HeartSurvey.js" />
     <Content Include="Scripts\Survey\Helper.js" />
     <Content Include="Scripts\utils.js" />

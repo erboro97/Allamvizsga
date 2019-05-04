@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modeler.Models.DataModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -47,6 +48,12 @@ namespace Modeler.Models.SqlRepository
             var lambdas = db.Surveys.OrderBy(e => e.inserted_dtm).Where(s => s.user_id == userId).Select(d => d.lambda).ToList();
           
             return lambdas;
+        }
+
+        public List<PatientDataModel> getPatients()
+        {
+            var patients = db.Users.Where(s => s.UserType == "patient").Select(d => new PatientDataModel {patientId=d.UserID, patientName=d.UserName }).ToList();
+            return patients;
         }
     }
 }

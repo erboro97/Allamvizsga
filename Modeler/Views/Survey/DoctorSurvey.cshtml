@@ -10,14 +10,17 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/utils.js"></script>
     <script src="~/Scripts/Survey/Helper.js"></script>
+    <script src="~/Scripts/Survey/DoctorChartHelper.js"></script>
     <meta name="viewport" content="width=device-width" />
     <title>Fill the survey with patient data</title>
 
 </head>
 <body>
     <div>
+
         @using (Html.BeginForm())
         {
+            <select name="users" id="users"></select>
             <h3> Gender </h3>
             <label>
                 Female

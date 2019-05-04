@@ -12,6 +12,7 @@ namespace Modeler.Models.SqlRepository
     public class Repository : DbContext
     {
         public DbSet<Client_Survey> Surveys { get; set; }
+        public DbSet<User> Users { get; set; }
         public static void runSqlNonQuery(string query)
         {
             string connection = "Data Source=DESKTOP-I76SIU9\\MSSQLSERVERBORO;Initial Catalog=Modeler;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
