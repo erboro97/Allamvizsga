@@ -17,6 +17,12 @@ $(document).ready(function () {
               
             },
 
+            title: {
+                text: 'Cardiovascular state ',
+                align: 'left',
+                x: 70
+            },
+            
             xAxis: {
               
             },
@@ -26,10 +32,10 @@ $(document).ready(function () {
             },
 
             legend: {
-                enabled: false
+                enabled: true
             },
             tooltip: {
-                enabled: false,
+                enabled: true,
                 headerFormat: '<span style="font-size:11px">{point.key}</span><br>',
                 pointFormat: '{series.name}: <b>{point.y:.1f}%</b> '
             },
@@ -50,7 +56,7 @@ $(document).ready(function () {
 
             series: [{
 
-                name: 'Segment',
+                name: 'Cardiovascular state',
                 data: (function () {
                     var category = ['x'];
                     var mySeries = [];
@@ -64,11 +70,11 @@ $(document).ready(function () {
                 }()),
                
                 zones: [{
-                    value: 0.25,
+                    value: 0.33,
                     color: '#f7a35c'
                 }, {
-                    value: 0.75,
-                    color: '#7cb5ec'
+                    value: 0.66,
+                    color: '#FFFF00'
                 }, {
                     color: '#90ed7d'
                 }]

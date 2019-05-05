@@ -60,7 +60,19 @@ namespace Api.Controllers
 
         }
 
+        [HttpGet]
+        public object getHRValues(int id)
+        {
+            Query query = new Query();
+            List<int> HRCountValues = new List<int>();
+            HRCountValues.Add(query.hrNormalVaues(id.ToString()));
+            HRCountValues.Add(query.hrHighVaues(id.ToString()));
+            HRCountValues.Add(query.hrLowVaues(id.ToString()));
 
+            var obj = new ExpandoObject() as IDictionary<string, Object>;
+            obj.Add("hrs", HRCountValues);
+            return obj;
+        }
       
 
 

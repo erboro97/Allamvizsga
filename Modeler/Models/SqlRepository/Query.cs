@@ -55,5 +55,21 @@ namespace Modeler.Models.SqlRepository
             var patients = db.Users.Where(s => s.UserType == "patient").Select(d => new PatientDataModel {patientId=d.UserID, patientName=d.UserName }).ToList();
             return patients;
         }
+
+        public int hrNormalVaues(string userId)
+        {
+            var hrs = db.Surveys.OrderBy(e => e.inserted_dtm).Where(s => s.user_id == userId).Count(d => d.HR > 60 && d.HR < 100);
+            return hrs;
+        }
+        public int hrLowVaues(string userId)
+        {
+            var hrs = db.Surveys.OrderBy(e => e.inserted_dtm).Where(s => s.user_id == userId).Count(d => d.HR < 60);
+            return hrs;
+        }
+        public int hrHighVaues(string userId)
+        {
+            var hrs = db.Surveys.OrderBy(e => e.inserted_dtm).Where(s => s.user_id == userId).Count(d => d.HR < 60);
+            return hrs;
+        }
     }
 }

@@ -17,7 +17,7 @@
 </head>
 <body>
     <div>
-
+        <input type="button" onclick="location.href='http://localhost:54231/Chart/RedirectUserType';" value="Go to charts" />
         @using (Html.BeginForm())
         {
             <select name="clientId" id="users"></select>
@@ -62,7 +62,6 @@
                     @Html.RadioButtonFor(m => m.lambdaSurvey.history, 2)
                 </label>
 
-
                 <h3>EKG</h3>
                 <label>
                     Normal
@@ -91,7 +90,6 @@
                     @Html.RadioButtonFor(m => m.lambdaSurvey.age, 2)
                 </label>
 
-
                 <h3>Risk factors</h3>
                 <label>
                     No known risk factors
@@ -105,8 +103,6 @@
                     >=3 risk factors or history of atherosclerotic disease
                     @Html.RadioButtonFor(m => m.lambdaSurvey.riskFactors, 2)
                 </label>
-
-
 
                 <h3>Initial troponin</h3>
                 <label>
