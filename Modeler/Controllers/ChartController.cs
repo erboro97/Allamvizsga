@@ -9,10 +9,18 @@ namespace Modeler.Controllers
     public class ChartController : Controller
     {
         // GET: Chart
-        public ActionResult RedirectUserType()
+        [HttpGet]
+        public ActionResult RedirectUserType(string userId)
         {
             string userType = Session["userType"].ToString().Trim();
-            ViewBag.UserId = Session["userID"].ToString().Trim();
+            if (userId == null)
+            {
+                ViewBag.UserId = Session["userID"].ToString().Trim();
+            }
+            else
+            {
+                ViewBag.UserId = userId.ToString();
+            }
             switch (userType)
             {
                 case "doctor":

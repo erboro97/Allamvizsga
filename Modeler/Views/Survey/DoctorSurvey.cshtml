@@ -13,11 +13,10 @@
     <script src="~/Scripts/Survey/DoctorChartHelper.js"></script>
     <meta name="viewport" content="width=device-width" />
     <title>Fill the survey with patient data</title>
-
 </head>
 <body>
     <div>
-        <input type="button" onclick="location.href='http://localhost:54231/Chart/RedirectUserType';" value="Go to charts" />
+        <input type="button" id="goToCharts" value="Go to charts" />
         @using (Html.BeginForm())
         {
             <select name="clientId" id="users"></select>

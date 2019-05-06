@@ -56,7 +56,7 @@ $(document).ready(function () {
                 data: (function () {
                     var category = ['x'];
                     var mySeries = [];
-                    myData = [data.r0.t, data.r0.hr];
+                    myData = [data.r0.hr, data.r0.t];
                     for (var i = 0; i < myData[0].length; i++) {
                         mySeries.push([myData[1][i], myData[0][i]]);
                     }
@@ -76,7 +76,7 @@ $(document).ready(function () {
                         data: (function () {
                             var category = ['x'];
                             var mySeries = [];
-                            myData = [value.t, value.hr];
+                            myData = [value.hr, value.t];
                             for (var j = 0; j < myData[0].length; j++) {
                                 mySeries.push([myData[1][j], myData[0][j]]);
                             }
