@@ -1,7 +1,7 @@
 ﻿var DoctorChartHelper = (function () {
     var settings = {
         patients: null,
-        patientId: "2"
+        patientId: 2
     };
 
     function getPatients() {
@@ -31,6 +31,7 @@
 
     function Init() {
         $('#goToCharts').click(function () {
+            settings.patientId = $("#users").children("option").filter(":selected").val();
             window.location.href = "http://localhost:54231/Chart/RedirectUserType?userId=" + settings.patientId;
 
         });
