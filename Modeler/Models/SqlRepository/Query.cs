@@ -50,6 +50,12 @@ namespace Modeler.Models.SqlRepository
             return lambdas;
         }
 
+        public double lastLambdaValue (string userId)
+        {
+            var lastLambda = db.Surveys.Where(s => s.inserted_dtm == db.Surveys.Max(m => m.inserted_dtm)).Select(d => d.lambda).First();
+            return lastLambda;
+        }
+
         public List<PatientDataModel> getPatients()
         {
             var patients = db.Users.Where(s => s.UserType == "patient").Select(d => new PatientDataModel {patientId=d.UserID, patientName=d.UserName }).ToList();

@@ -17,9 +17,13 @@
         z-index: 1;
         top: -5px;
         left: 105%;
+        /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+        opacity: 0;
+        transition: opacity 1s;
     }
 
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-}
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
 

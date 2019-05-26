@@ -228,6 +228,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\Charts\charts.css" />
+    <Content Include="Content\css\css\bootstrap-grid.css" />
+    <Content Include="Content\css\css\bootstrap-grid.min.css" />
+    <Content Include="Content\css\css\bootstrap-reboot.css" />
+    <Content Include="Content\css\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\css\css\bootstrap.css" />
+    <Content Include="Content\css\css\bootstrap.min.css" />
     <Content Include="Content\css\Login-1.1.css" />
     <Content Include="Content\css\Survey\hover.css" />
     <Content Include="favicon.ico" />
@@ -257,8 +263,15 @@
     <Content Include="Models\LoginData.edmx.diagram">
       <DependentUpon>LoginData.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\css\css\bootstrap-grid.css.map" />
+    <Content Include="Content\css\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\css\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\css\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\css\css\bootstrap.css.map" />
+    <Content Include="Content\css\css\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Charts\charts.js" />
+    <Content Include="Scripts\Charts\helper.js" />
     <Content Include="Scripts\Charts\HRClassificationChart.js" />
     <Content Include="Scripts\Charts\lambdaChart.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -268,6 +281,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\bootstrap.bundle.js" />
+    <Content Include="Scripts\js\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\js\bootstrap.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -296,9 +313,14 @@
     <Content Include="Views\Survey\HeartSurvey.cshtml" />
     <Content Include="Views\Survey\HeartScore.cshtml" />
     <Content Include="Views\Survey\DoctorSurvey.cshtml" />
+    <Content Include="Scripts\js\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\js\bootstrap.js.map" />
+    <Content Include="Scripts\js\bootstrap.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\films\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

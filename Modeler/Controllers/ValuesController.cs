@@ -59,6 +59,16 @@ namespace Api.Controllers
             return obj;
 
         }
+        [HttpGet]
+        public double getLastLambdaValue(int id)
+        {
+            Query query = new Query();
+            var lastLambdaValue = query.lastLambdaValue(id.ToString());
+            return lastLambdaValue;
+
+        }
+
+        
 
         [HttpGet]
         public object getHRValues(int id)

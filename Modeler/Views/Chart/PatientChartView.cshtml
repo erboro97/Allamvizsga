@@ -10,10 +10,21 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/Charts/lambdaChart.js"></script>
     <script src="~/Scripts/Charts/HRClassificationChart.js"></script>
+    <script src="~/Scripts/Charts/helper.js"></script>
 </header>
 <body>
+    <h4>Managment</h4>
+    <input type="hidden" id="UserId" value="@ViewBag.UserId" />
+    <div id="explanation1" style="display:none">
+        0.9-1.7% risk of adverse cardiac event. In the HEART Score study, these patients were discharged (0.99% in the retrospective study, 1.7% in the prospective study)
+    </div>
+    <div id="explanation2" style="display:none">
+        12-16.6% risk of adverse cardiac event. In the HEART Score study, these patients were admitted to the hospital. (11.6% retrospective, 16.6% prospective)
+    </div>
+    <div id="explanation3" style="display:none">
+        50-65% risk of adverse cardiac event. In the HEART Score study, these patients were candidates for early invasive measures. (65.2% retrospective, 50.1% prospective)
+    </div>
     <div id="container">
-        <input type="hidden" id="UserId" value="@ViewBag.UserId" />
         Patient
     </div>
     <div id="hrContainer"></div>
