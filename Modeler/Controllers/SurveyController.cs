@@ -41,12 +41,15 @@ namespace Modeler.Controllers
         [HttpPost]
         public ActionResult DoctorSurvey(DoctorSurveyModel model)
         {
-
-            Client_Survey clientSurvey = new Client_Survey();
-            clientSurvey = model.formatToDatabaseStructure(Session["userID"].ToString().Trim());
-            Query query = new Query();
-            query.insertClientSurveyTable(clientSurvey);
-            return RedirectToAction("RedirectUserType", "Chart");
+            if (ModelState.IsValid)
+            {
+                Client_Survey clientSurvey = new Client_Survey();
+                clientSurvey = model.formatToDatabaseStructure(Session["userID"].ToString().Trim());
+                Query query = new Query();
+                query.insertClientSurveyTable(clientSurvey);
+                return RedirectToAction("RedirectUserType", "Chart");
+            }
+            return View("DoctorSurvey", model);
         }
 
         [HttpPost]
