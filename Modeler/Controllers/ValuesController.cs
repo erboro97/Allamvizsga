@@ -84,7 +84,40 @@ namespace Api.Controllers
             return obj;
         }
       
+        [HttpGet]
+        public object speedHRValues (int userId)
+        {
+            Query query = new Query();
+            var userAnswer = query.lastValuesPerUser(userId.ToString());
+            var obj = new ExpandoObject() as IDictionary<string, Object>;
+            RungeKutta rungeKutta = new RungeKutta(userAnswer.gender, userAnswer.lambda, userAnswer.HR, userAnswer.v);
+            rungeKutta.solve();
+            ODEResultModel results = new ODEResultModel(rungeKutta.getHRResults(), rungeKutta.getvResults(), rungeKutta.getTResults());
+            obj.Add("xData", results.t);
 
+            var datasets= new ExpandoObject() as IDictionary<string, Object>;
 
+            var dataset1= new ExpandoObject() as IDictionary<string, Object>;
+            dataset1.Add("name", "Speed");
+            dataset1.Add("type", "line");
+            dataset1.Add("unit", "m/s");
+            dataset1.Add("valueDecimals", 1);
+            dataset1.Add("data", results.v);
+
+            var dataset2= new ExpandoObject() as IDictionary<string, Object>;
+            dataset2.Add("name", "Heart rate");
+            dataset2.Add("type", "area");
+            dataset2.Add("unit", "bpm");
+            dataset2.Add("valueDecimals", 0);
+            dataset2.Add("data", results.hr);
+
+            datasets.Add("0", dataset1);
+            datasets.Add("1", dataset2);
+
+            obj.Add("datasets", datasets);
+
+            return obj;
+
+        }
     }
 }

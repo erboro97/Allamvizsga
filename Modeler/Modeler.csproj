@@ -274,6 +274,7 @@
     <Content Include="Scripts\Charts\helper.js" />
     <Content Include="Scripts\Charts\HRClassificationChart.js" />
     <Content Include="Scripts\Charts\lambdaChart.js" />
+    <Content Include="Scripts\Charts\speedHRChart.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

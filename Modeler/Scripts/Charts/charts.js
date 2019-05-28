@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         var chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'container',
+                renderTo: 'container1',
                 type: 'spline',
             },
 

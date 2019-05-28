@@ -77,5 +77,12 @@ namespace Modeler.Models.SqlRepository
             var hrs = db.Surveys.OrderBy(e => e.inserted_dtm).Where(s => s.user_id == userId).Count(d => d.HR < 60);
             return hrs;
         }
+
+        public Client_Survey lastValuesPerUser (string userId)
+        {
+            var surveyData = db.Surveys.Where(d => d.user_id == userId && d.v >= 0
+            && d.inserted_dtm == db.Surveys.Where(l => l.user_id==userId && l.v>=0).Max(m => m.inserted_dtm )).First();
+            return surveyData;
+        }
     }
 }
