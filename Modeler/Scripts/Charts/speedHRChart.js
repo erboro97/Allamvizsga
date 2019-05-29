@@ -87,11 +87,11 @@ function syncExtremes(e) {
     success: function (activity) {
 
         activity = JSON.parse(activity);
-        activity.datasets = JSON.parse(activity.datasets);
-        activity.datasets.forEach(function (dataset, i) {
+        activity.datasets = JSON.parse(JSON.stringify(activity.datasets));
+        for (var i = 0; i < 2;i++){
 
             // Add X values
-            dataset.data = Highcharts.map(dataset.data, function (val, j) {
+            activity.datasets[i].data = Highcharts.map(activity.datasets[i].data, function (val, j) {
                 return [activity.xData[j], val];
             });
 
@@ -106,7 +106,7 @@ function syncExtremes(e) {
                     spacingBottom: 20
                 },
                 title: {
-                    text: dataset.name,
+                    text: activity.datasets[i].name,
                     align: 'left',
                     margin: 0,
                     x: 30
@@ -123,7 +123,7 @@ function syncExtremes(e) {
                         setExtremes: syncExtremes
                     },
                     labels: {
-                        format: '{value} km'
+                        format: '{value} s'
                     }
                 },
                 yAxis: {
@@ -147,20 +147,20 @@ function syncExtremes(e) {
                     style: {
                         fontSize: '18px'
                     },
-                    valueDecimals: dataset.valueDecimals
+                    valueDecimals: activity.datasets[i].valueDecimals
                 },
                 series: [{
-                    data: dataset.data,
-                    name: dataset.name,
-                    type: dataset.type,
+                    data: activity.datasets[i].data,
+                    name: activity.datasets[i].name,
+                    type: activity.datasets[i].type,
                     color: Highcharts.getOptions().colors[i],
                     fillOpacity: 0.3,
                     tooltip: {
-                        valueSuffix: ' ' + dataset.unit
+                        valueSuffix: ' ' + activity.datasets[i].unit
                     }
                 }]
             });
-        });
+        };
     }
 });
 
