@@ -11,6 +11,10 @@ mouse/touch event handler to bind the charts together.
  * built-in events with handlers defined on the parent element.
  */
 $(document).ready(function () {
+    var settings = {
+        userId: $('#UserId').val(),
+        answers: null
+    };
 ['mousemove', 'touchmove', 'touchstart'].forEach(function (eventType) {
     document.getElementById('container').addEventListener(
         eventType,
@@ -77,12 +81,13 @@ function syncExtremes(e) {
 }
 
 // Get the data. The contents of the data file can be viewed at
-Highcharts.ajax({
-    url: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/activity.json',
+    Highcharts.ajax({
+        url: 'http://localhost:54231/api/Values/speedHRValues/' + '2',
     dataType: 'text',
     success: function (activity) {
 
         activity = JSON.parse(activity);
+        activity.datasets = JSON.parse(activity.datasets);
         activity.datasets.forEach(function (dataset, i) {
 
             // Add X values

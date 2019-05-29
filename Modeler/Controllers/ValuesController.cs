@@ -22,28 +22,37 @@ namespace Api.Controllers
 
         // Doctor survey's method
         [HttpGet]
-        public object getValues(int id)
+        public object speedHRValues(int id)
         {
+        
             Query query = new Query();
-            var userAnswers = query.listUserData(id.ToString());
-
-
+            var userAnswer = query.lastValuesPerUser(id.ToString());
             var obj = new ExpandoObject() as IDictionary<string, Object>;
-            int i = 0;
-            string index;
+            RungeKutta rungeKutta = new RungeKutta(userAnswer.gender, userAnswer.lambda, userAnswer.HR, userAnswer.v);
+            rungeKutta.solve();
+            ODEResultModel results = new ODEResultModel(rungeKutta.getHRResults(), rungeKutta.getvResults(), rungeKutta.getTResults());
+            obj.Add("xData", results.t);
 
+            var datasets = new ExpandoObject() as IDictionary<string, Object>;
 
-            obj.Add("size", userAnswers.Count);
-            foreach (var userAnswer in userAnswers)
-            {
-                RungeKutta rungeKutta = new RungeKutta(userAnswer.gender, userAnswer.lambda, userAnswer.HR, userAnswer.v);
-                rungeKutta.solve();
-                index = i.ToString();
-                i++;
-                ODEResultModel results = new ODEResultModel(rungeKutta.getHRResults(), rungeKutta.getvResults(), rungeKutta.getTResults());
+            var dataset1 = new ExpandoObject() as IDictionary<string, Object>;
+            dataset1.Add("name", "Speed");
+            dataset1.Add("type", "line");
+            dataset1.Add("unit", "m/s");
+            dataset1.Add("valueDecimals", 1);
+            dataset1.Add("data", results.v);
 
-                obj.Add("r" + index, results);
-            }
+            var dataset2 = new ExpandoObject() as IDictionary<string, Object>;
+            dataset2.Add("name", "Heart rate");
+            dataset2.Add("type", "area");
+            dataset2.Add("unit", "bpm");
+            dataset2.Add("valueDecimals", 0);
+            dataset2.Add("data", results.hr);
+
+            datasets.Add("0", dataset1);
+            datasets.Add("1", dataset2);
+
+            obj.Add("datasets", datasets);
 
             return obj;
         }
@@ -83,38 +92,30 @@ namespace Api.Controllers
             obj.Add("hrs", HRCountValues);
             return obj;
         }
-      
+
         [HttpGet]
-        public object speedHRValues (int userId)
+        public object getValues(int id)
         {
             Query query = new Query();
-            var userAnswer = query.lastValuesPerUser(userId.ToString());
+            var userAnswers = query.listUserData(id.ToString());
+
+
             var obj = new ExpandoObject() as IDictionary<string, Object>;
-            RungeKutta rungeKutta = new RungeKutta(userAnswer.gender, userAnswer.lambda, userAnswer.HR, userAnswer.v);
-            rungeKutta.solve();
-            ODEResultModel results = new ODEResultModel(rungeKutta.getHRResults(), rungeKutta.getvResults(), rungeKutta.getTResults());
-            obj.Add("xData", results.t);
+            int i = 0;
+            string index;
 
-            var datasets= new ExpandoObject() as IDictionary<string, Object>;
 
-            var dataset1= new ExpandoObject() as IDictionary<string, Object>;
-            dataset1.Add("name", "Speed");
-            dataset1.Add("type", "line");
-            dataset1.Add("unit", "m/s");
-            dataset1.Add("valueDecimals", 1);
-            dataset1.Add("data", results.v);
+            obj.Add("size", userAnswers.Count);
+            foreach (var userAnswer in userAnswers)
+            {
+                RungeKutta rungeKutta = new RungeKutta(userAnswer.gender, userAnswer.lambda, userAnswer.HR, userAnswer.v);
+                rungeKutta.solve();
+                index = i.ToString();
+                i++;
+                ODEResultModel results = new ODEResultModel(rungeKutta.getHRResults(), rungeKutta.getvResults(), rungeKutta.getTResults());
 
-            var dataset2= new ExpandoObject() as IDictionary<string, Object>;
-            dataset2.Add("name", "Heart rate");
-            dataset2.Add("type", "area");
-            dataset2.Add("unit", "bpm");
-            dataset2.Add("valueDecimals", 0);
-            dataset2.Add("data", results.hr);
-
-            datasets.Add("0", dataset1);
-            datasets.Add("1", dataset2);
-
-            obj.Add("datasets", datasets);
+                obj.Add("r" + index, results);
+            }
 
             return obj;
 
