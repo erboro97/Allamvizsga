@@ -13,9 +13,19 @@
     <script src="~/Scripts/Charts/speedHRChart.js"></script>
 </header>
 <body>
-
+    <div id="v">
+        @using (Html.BeginForm("ChangeSpeed", "Chart"))
+        {
+            <input type="hidden" id="UserId" name="UserId" value="@ViewBag.UserId" />
+            <p><i>Type initial speed of pysical activity if you want to change the initial speed</i></p>
+            <label>
+                <input type="number" name="v" id="v">
+            </label>
+            <input type="submit" value="Add new speed">
+        }
+    </div>
     <div id="container1">
-        <input type="hidden" id="UserId" value="@ViewBag.UserId" />
+        <input type="hidden" id="UserId" name="UserId" value="@ViewBag.UserId" />
         Doctor
     </div>
     <button id="button" class="autocompare">Add series</button>

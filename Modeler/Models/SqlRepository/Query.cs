@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Modeler.Models.SqlRepository
 {
-    public class Query
+    public class Query: QueryStrings
     {
         private Repository db;
 
@@ -28,13 +28,14 @@ namespace Modeler.Models.SqlRepository
                 db.Surveys.Add(newRow);
                 db.SaveChanges();
                 var surveyData = listSurveyData();
-                return true;
+                
             }
             catch (Exception e)
             {
                 return false;
             }
-            
+            return true;
+
         }
 
         public List<Client_Survey> listUserData (string userId)
@@ -83,6 +84,21 @@ namespace Modeler.Models.SqlRepository
             var surveyData = db.Surveys.Where(d => d.user_id == userId && d.v >= 0
             && d.inserted_dtm == db.Surveys.Where(l => l.user_id==userId && l.v>=0).Max(m => m.inserted_dtm )).First();
             return surveyData;
+        }
+
+        public void changeV (string userId, int v)
+        {
+            changeVQuery = changeVQuery.Replace("_DATE_", DateTime.Now.ToString());
+            changeVQuery = changeVQuery.Replace("_USERID_", userId);
+            changeVQuery = changeVQuery.Replace("_SPEED_", v.ToString());
+            try
+            {
+                db.runSqlNonQuery(changeVQuery);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

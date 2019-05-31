@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modeler.Models.SqlRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -32,6 +33,14 @@ namespace Modeler.Controllers
             Session.Abandon();
             return RedirectToAction("Index", "Login");
 
+        }
+
+        public ActionResult ChangeSpeed (string UserId, int v)
+        {
+            ViewBag.UserId = UserId.ToString();
+            Query query = new Query();
+            query.changeV(UserId, v);
+            return View("DoctorChartView");
         }
 
     }
