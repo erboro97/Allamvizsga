@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WebApplication1.Models.RungeKutta">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ABAABACIEAAACAAAAAIAgAAEAIABKgA0AGwkBAYZBDA=</HashCode>
+      <FileName>Models\RungeKutta\RungeKutta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Api.Controllers.ValuesController">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAgCAAAAAAAAAAAAAAARAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ValuesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modeler.Models.DataModels.ODEResultModel">
+    <Position X="1.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAABQAAAAAAAA=</HashCode>
+      <FileName>Models\DataModels\ODEResultModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

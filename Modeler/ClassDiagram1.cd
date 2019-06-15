@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Modeler.Models.SqlRepository.Repository" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAgAAAAAgAAAAAABAAAAA=</HashCode>
+      <FileName>Models\SqlRepository\Repository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modeler.Models.SqlRepository.Query" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAYAAECCgAAIAQAAAgAAAAAABQAAAAAAAA=</HashCode>
+      <FileName>Models\SqlRepository\Query.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modeler.Models.SqlRepository.QueryStrings" Collapsed="true">
+    <Position X="8" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SqlRepository\QueryStrings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modeler.Models.ModelerEntities" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAACBAAIAAAAAAAACAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\LoginData.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modeler.Models.Client_Survey" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAoAAAAAAAAAAAAgAAAAAABAAAAABAAAAAAAgA=</HashCode>
+      <FileName>Models\Client_Survey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modeler.Models.Disease" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Disease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modeler.Models.Disease_Symptom_rel" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAIAAAABAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Disease_Symptom_rel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modeler.Models.Symptom" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAQAAAAAAA=</HashCode>
+      <FileName>Models\Symptom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modeler.Models.User" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAgAAAAACAACAQAAAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Api.Controllers.ValuesController" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAgCAAAAAAAAAAAAAAARAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ValuesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
