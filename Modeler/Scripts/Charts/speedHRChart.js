@@ -82,7 +82,7 @@ function syncExtremes(e) {
 
 // Get the data. The contents of the data file can be viewed at
     Highcharts.ajax({
-        url: 'http://localhost:54231/api/Values/speedHRValues/' + '2',
+        url: 'http://localhost:54231/api/Values/speedHRValues/' + settings.userId,
     dataType: 'text',
     success: function (activity) {
 

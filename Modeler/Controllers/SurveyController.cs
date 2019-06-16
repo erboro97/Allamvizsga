@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Modeler.Models;
 using Modeler.Models.DataModels;
 using Modeler.Models.SqlRepository;
@@ -47,7 +48,7 @@ namespace Modeler.Controllers
                 clientSurvey = model.formatToDatabaseStructure(Session["userID"].ToString().Trim());
                 Query query = new Query();
                 query.insertClientSurveyTable(clientSurvey);
-                return RedirectToAction("RedirectUserType", "Chart");
+                return RedirectToAction("RedirectUserType", new RouteValueDictionary( new { controller = "Chart", action = "Main", userId = model.clientId}));
             }
             return View("DoctorSurvey", model);
         }

@@ -15,7 +15,7 @@ namespace WebApplication1.Models
         private List<double> HRResults;
         private List<double> vResults;
         private double t=0;
-        private double dx = 0.25;
+        private double dx = 1.0;
         private double[] k1;
         private double[] k2;
         private double[] k3;
@@ -80,7 +80,7 @@ namespace WebApplication1.Models
             result[1] = y[1] * value;
             return result;
         }
-       
+       // y[0] a hr y[1] a v
 
         double[] dEqs(double x, double[] y, double h)
         {
@@ -131,7 +131,7 @@ namespace WebApplication1.Models
         {
             double alfa1 = 10.0;
             double HRmax = 190.0;
-            double result= -1 + Math.Exp(-1 * Math.Pow((HR - HRmax / alfa1), 2));
+            double result= -1 + Math.Exp(-1 * Math.Pow((HR - HRmax)/ alfa1, 2));
             return result;
         }
 
@@ -141,7 +141,7 @@ namespace WebApplication1.Models
             double alfa4 = 0.003;
             double alfa5 = 4;
             double HRmax = 195;
-            double result = alfa4 * lambda * Math.Pow(((HRmax - HRmin()) / (HR0 - HRmin())), alfa5);
+            double result = alfa4 * lambda * Math.Pow((HRmax - HRmin()) / (HR0 - HRmin()), alfa5);
             return result;
         }
 

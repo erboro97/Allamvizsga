@@ -1,7 +1,7 @@
 ﻿var DoctorChartHelper = (function () {
     var settings = {
         patients: null,
-        patientId: 2
+        patientId: 0
     };
 
     function getPatients() {

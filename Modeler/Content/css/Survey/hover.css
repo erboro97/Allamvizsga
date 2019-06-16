@@ -1,10 +1,10 @@
-﻿.tooltip {
+﻿.tooltip1 {
     position: relative;
     border-bottom: 1px dotted black;
     opacity: 1;
 }
 
-    .tooltip .tooltiptext {
+    .tooltip1 .tooltiptext {
         visibility: hidden;
         width: 120px;
         background-color: black;
@@ -22,7 +22,7 @@
         transition: opacity 1s;
     }
 
-    .tooltip:hover .tooltiptext {
+    .tooltip1:hover .tooltiptext {
         visibility: visible;
         opacity: 1;
     }

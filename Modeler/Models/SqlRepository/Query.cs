@@ -40,13 +40,13 @@ namespace Modeler.Models.SqlRepository
 
         public List<Client_Survey> listUserData (string userId)
         {
-            var surveyData = db.Surveys.OrderBy(e => e.inserted_dtm).Where(d => d.user_id==userId && d.v>=0).ToList();
+            var surveyData = db.Surveys.OrderByDescending(e => e.inserted_dtm).Where(d => d.user_id==userId && d.v>=0).Take(15).ToList();
             return surveyData;
         }
 
         public List<double> lambdaUserValues (string userId)
         {
-            var lambdas = db.Surveys.OrderBy(e => e.inserted_dtm).Where(s => s.user_id == userId).Select(d => d.lambda).ToList();
+            var lambdas = db.Surveys.OrderByDescending(e => e.inserted_dtm).Where(s => s.user_id == userId).Select(d => d.lambda).ToList();
           
             return lambdas;
         }
@@ -65,17 +65,17 @@ namespace Modeler.Models.SqlRepository
 
         public int hrNormalVaues(string userId)
         {
-            var hrs = db.Surveys.OrderBy(e => e.inserted_dtm).Where(s => s.user_id == userId).Count(d => d.HR > 60 && d.HR < 100);
+            var hrs = db.Surveys.OrderByDescending(e => e.inserted_dtm).Where(s => s.user_id == userId).Count(d => d.HR > 60 && d.HR < 100);
             return hrs;
         }
         public int hrLowVaues(string userId)
         {
-            var hrs = db.Surveys.OrderBy(e => e.inserted_dtm).Where(s => s.user_id == userId).Count(d => d.HR < 60);
+            var hrs = db.Surveys.OrderByDescending(e => e.inserted_dtm).Where(s => s.user_id == userId).Count(d => d.HR < 60);
             return hrs;
         }
         public int hrHighVaues(string userId)
         {
-            var hrs = db.Surveys.OrderBy(e => e.inserted_dtm).Where(s => s.user_id == userId).Count(d => d.HR < 60);
+            var hrs = db.Surveys.OrderByDescending(e => e.inserted_dtm).Where(s => s.user_id == userId).Count(d => d.HR < 60);
             return hrs;
         }
 
