@@ -20,6 +20,10 @@ namespace Modeler.Models.DataModels
             {
                 lambdaValue = lambdaSurvey.calculateScore();
             }
+            else
+            {
+                lambdaValue = 1 - lambdaValue;
+            }
         }
 
         public Client_Survey formatToDatabaseStructure (string userId)

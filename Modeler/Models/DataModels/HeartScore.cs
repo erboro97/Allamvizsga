@@ -18,10 +18,21 @@ namespace Modeler.Models.DataModels
         public int riskFactors { get; set; }
         [Required(ErrorMessage = "This field is required.")]
         public int initialTroponin { get; set; }
+        public int exercise { get; set; }
 
         public double calculateScore()
         {
-            return (double)(history + ekg + age + riskFactors + initialTroponin)/10.0;
+            double sum = (history + ekg + age + riskFactors + initialTroponin + exercise);
+            double lambda;
+            if (sum == 12)
+            {
+                lambda = 0.1;
+            }
+            else
+            { 
+                lambda = (double)1-sum / 12;
+            }
+            return lambda;
         }
         
     }
