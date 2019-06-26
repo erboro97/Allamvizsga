@@ -38,6 +38,22 @@
             </div>
 
             <div class="tooltip1">
+                <h3> Pacemaker </h3>
+                <label>
+                    Yes
+                    <input type="radio" name="pacemaker" value=1 required>
+
+
+                </label>
+                <label>
+                    No
+                    <input type="radio" name="pacemaker" value=0 required>
+
+                </label>
+                <span class="tooltiptext"> When your heart rate drops below that set rate, your pacemaker generates (fires) an electrical impulse that passes through the lead to the heart muscle. This causes the heart muscle to contract, creating a heartbeat.</span>
+            </div>
+
+            <div class="tooltip1">
                 <h3> Heart rate initial value </h3>
                 <label>
                     <input type="number" name="hr" data-bv-integer-message="The value is not an integer" required>
@@ -193,6 +209,6 @@
             <input type="submit" value="Calculate">
 
         }
-        </div>
+    </div>
 </body>
 </html>
