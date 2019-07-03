@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - MODELLING OF CARDIOVASCULAR DISEASES</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -12,13 +12,11 @@
         <div class="container">
             <div class="navbar-header">
 
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("MODELLING OF CARDIOVASCULAR DISEASES", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
-                    <li class="nav-item active">@Html.ActionLink("About", "About", "Home", new { @class = "nav-link" })</li>
-                    <li class="nav-item active">@Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link" })</li>
+         
                     @if (Session["userID"] != null)
                     {
                         <li class="nav-item active">@Html.ActionLink("Log Out", "LogOut", "Login", null, new { @class = "nav-link" })</li>
